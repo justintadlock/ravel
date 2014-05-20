@@ -1058,7 +1058,7 @@ li.ping::after,
 
 				.entry {/* view grouping above */}
 
-					.entry .byline,
+					.entry .entry-byline,
 					.entry.page .entry-header,
 					#comments-header {
 						border-right: 3px double rgba(255,255,255,.1);
@@ -1835,21 +1835,21 @@ li.ping::after,
 
 	/* === byline === */
 
-	.byline {
+	.entry-byline {
 		margin-bottom: 18px;	
 	}
 
-		.byline .entry-published {
+		.entry-byline .entry-published {
 			display: block;	
 			color: #f74037;
 			font-weight: 700;
 			text-transform: uppercase;
 		}
-		.byline .comments-link,
-		.byline .post-edit-link {
+		.entry-byline .comments-link,
+		.entry-byline .post-edit-link {
 			display: block;	
 		}
-		.byline .post-edit-link {
+		.entry-byline .post-edit-link {
 			background: rgba(0,0,0,.15);
 			display: inline-block;
 			font-size: 12px;
@@ -1857,7 +1857,7 @@ li.ping::after,
 			padding: 0 9px;
 			text-transform: uppercase;
 		}
-		.byline .post-edit-link:hover {
+		.entry-byline .post-edit-link:hover {
 			background: rgba(0,0,0,.5);
 			text-decoration: none;
 		}
@@ -2164,7 +2164,7 @@ li.ping::after,
 		/* === Comments Header === */
 
 		#comments-header {
-			/* view '.entry .byline' */
+			/* view '.entry .entry-byline' */
 			padding-top: 3px;
 			padding-bottom: 6px;
 		}

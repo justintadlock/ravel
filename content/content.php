@@ -4,7 +4,7 @@
 
 		<header class="entry-header">
 
-			<div class="entry-byline byline">
+			<div class="entry-byline">
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 				<?php hybrid_post_author( array( 'text' => __( 'By %s', 'ravel' ) ) ); ?>
 				<?php comments_popup_link( number_format_i18n( 0 ), number_format_i18n( 1 ), '%', 'comments-link', '' ); ?>
@@ -32,7 +32,7 @@
 
 		<header class="entry-header">
 
-			<div class="entry-byline byline">
+			<div class="entry-byline">
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 				<?php hybrid_post_author( array( 'text' => __( 'By %s', 'ravel' ) ) ); ?>
 				<?php comments_popup_link( number_format_i18n( 0 ), number_format_i18n( 1 ), '%', 'comments-link', '' ); ?>
