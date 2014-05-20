@@ -38,6 +38,9 @@ add_action( 'after_setup_theme', 'stargazer_theme_setup', 5 );
  */
 function stargazer_theme_setup() {
 
+	/* Load files. */
+	require_once( trailingslashit( get_template_directory() ) . 'inc/ravel.php' );
+
 	/* Load widgets. */
 	add_theme_support( 'hybrid-core-widgets' );
 
