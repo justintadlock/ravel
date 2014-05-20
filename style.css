@@ -44,7 +44,7 @@ nav.menu li > a::after,
 /* entry footer */
 
 .entry-terms::before,
-.entry-footer .permalink::before,
+.entry-footer .entry-permalink::before,
 
 /* additional list styles */
 ul.checks li::before,
@@ -1783,7 +1783,7 @@ li.ping::after,
 		.entry-footer a {color: #8d9ca6;}
 		.entry-footer a:hover {color: #e3f4ff;text-decoration: none;}
 
-		.entry-footer .permalink {
+		.entry-footer .entry-permalink {
 			float: right;
 			font-size: 0;
 			line-height: 0;
@@ -1791,10 +1791,10 @@ li.ping::after,
 			text-align: right;
 			width: 10%;
 		}
-		.entry-footer .permalink:hover {
+		.entry-footer .entry-permalink:hover {
 			opacity: 1;	
 		}
-			.entry-footer .permalink::before {
+			.entry-footer .entry-permalink::before {
 				content: '\f0c1';
 				font-size: 14px;
 				margin-top: 6px;
