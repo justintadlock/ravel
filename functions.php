@@ -59,7 +59,7 @@ function stargazer_theme_setup() {
 	/* Load stylesheets. */
 	add_theme_support(
 		'hybrid-core-styles',
-		array( 'parent', 'style' )
+		array( 'ravel-fonts', 'ravel-mediaelement', 'ravel-wp-mediaelement', 'parent', 'style' )
 	);
 
 	/* Enable custom template hierarchy. */
@@ -91,5 +91,5 @@ function stargazer_theme_setup() {
 
 	/* Handle content width for embeds and images. */
 	// Note: this is the largest size based on the theme's various layouts.
-	hybrid_set_content_width( 1200 );
+	hybrid_set_content_width( 540 );
 }

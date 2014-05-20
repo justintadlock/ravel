@@ -75,5 +75,11 @@ function ravel_register_sidebars() {
  * @return void
  */
 function ravel_register_styles() {
+
+	wp_deregister_style( 'mediaelement'    );
+	wp_deregister_style( 'wp-mediaelement' );
+
 	wp_register_style( 'ravel-fonts', '//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Roboto:400,400italic,700,700italic' );
+	wp_register_style( 'ravel-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/mediaelementplayer.min.css' );
+	wp_register_style( 'ravel-wp-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/wp-mediaelement.css' );
 }
