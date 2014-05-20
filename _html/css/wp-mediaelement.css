@@ -1,0 +1,220 @@
+.mejs-container * {
+	font-family: Arial, Helvetica;
+}
+
+.mejs-controls .mejs-time-rail .mejs-time-loaded {
+	background: #8dc63f;
+}
+
+.mejs-controls .mejs-time-rail .mejs-time-current {
+	background: #d54e21;
+}
+
+.me-cannotplay {
+	width: auto !important;
+}
+
+.media-embed-details .wp-audio-shortcode {
+	display: inline-block;
+	max-width: 400px;
+}
+
+.media-embed-details .embed-media-settings .setting span {
+	max-width: 400px;
+	width: auto;
+}
+
+.media-embed-details .embed-media-settings .checkbox-setting span {
+	display: inline-block;
+}
+
+.media-embed-details .embed-media-settings {
+	padding-top: 0;
+	top: 28px;
+}
+
+.media-embed-details .instructions {
+	padding: 16px 0;
+	max-width: 600px;
+}
+
+.media-embed-details .setting p,
+.media-embed-details .setting a {
+	color: #a00;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+.media-embed-details .setting a:hover {
+	color: #f00;
+}
+
+.media-embed-details .embed-media-settings .checkbox-setting {
+	float: none;
+	margin: 0 0 10px;
+}
+
+.video-details .wp-video-holder {
+	width: 100%;
+	max-width: 640px;
+}
+
+/*
+ * PLAYLISTS
+ * ============================================================
+ * */
+
+.wp-playlist {
+	background: #161d21;
+	border: 1px solid #333b41;
+	box-shadow: 12px 12px 0 rgba(0,0,0,.08);
+	padding: 10px;
+	margin: 14px 0 13px;
+}
+
+	.wp-audio-playlist .me-cannotplay span {
+		padding: 5px 15px;
+	}
+
+	/* === current item === */
+
+	.wp-playlist-current-item {
+		background: #101517;
+		border-bottom: 1px dotted #1d2529;
+		clear: both;
+		overflow: hidden;
+		padding: 10px;
+		text-shadow: none;
+	}
+
+		/* current item image */
+		.wp-playlist .wp-playlist-current-item img {
+			background: #fff;
+			display: inline-block;
+			float: left;
+			max-width: 80px;
+			padding: 6px;
+			height: auto;
+			vertical-align: top;
+		}
+
+		.rtl .wp-playlist .wp-playlist-current-item img {
+			float: right;
+		}
+
+		/* current item caption */
+		.wp-playlist-current-item .wp-playlist-caption {
+			display: block;
+			color: #fff;
+			max-width: calc(100% - 80px);
+			overflow: hidden;
+			padding: 6px 18px;
+			text-overflow: ellipsis;
+			vertical-align: top;
+			white-space: nowrap;
+		}
+
+			.wp-playlist-current-item .wp-playlist-item-title,
+			.wp-playlist-current-item .wp-playlist-item-artist {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+
+	/* === Container === */
+	.wp-playlist .mejs-container {
+		margin: 0;
+		width: 100%;
+	}
+
+			/* === .mejs-mediaelement === */
+
+				.wp-playlist video {
+					display: inline-block;
+					max-width: 100%;
+				}
+
+				.wp-playlist audio {
+					display: none;
+					max-width: 100%;
+					width: 400px;
+				}
+
+			/* === .mejs-controls === */
+
+					.wp-playlist .mejs-controls .mejs-button button {
+						outline: 0;
+					}
+
+	/* === playlist navigation === */
+	.wp-playlist-next{}
+	.wp-playlist-prev{}
+
+	/* === Playlist Tracks */
+
+	.wp-playlist-tracks {
+
+	}
+
+		.wp-playlist-item {
+			border-top: 1px solid #1d2529;
+			border-bottom: 1px solid #101517;
+			cursor: pointer;
+			font-size: 13px;
+			line-height: 21px;
+			padding: 6px;
+			position: relative;
+		}
+
+		.wp-playlist-item:first-child {border-top: 0;}
+		.wp-playlist-item:last-child {border-bottom: 0;}
+
+		.wp-playlist-item:nth-child(odd) {
+			background: rgba(0,0,0,.1);
+			}
+
+			/* playlist item caption */
+			.wp-playlist-item .wp-playlist-caption {
+				/* this is different from first instance of .wp-playlist-caption above */
+				display: block;
+				max-width: -webkit-calc(100% - 40px);
+				max-width: calc(100% - 40px);
+			}
+
+				.wp-playlist-item .wp-playlist-item-title {}
+
+			/* playlist item length */
+			.wp-playlist-item-length {
+				position: absolute;
+					right: 6px;
+					top: 6px;
+			}
+
+			.rtl .wp-playlist-item-length {
+				left: 6px;
+				right: auto;
+			}
+
+			.wp-playlist-item-meta {
+				display: block;
+
+			}
+
+			.wp-playlist-item-album {
+				font-style: italic;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+
+			.wp-playlist-item-artist {
+				font-size: 12px;
+				text-transform: uppercase;
+			}
+
+		/* current item of playlist tracks */
+		.wp-playlist-playing,
+			.wp-playlist-playing .wp-playlist-caption {
+				color: #00aeef;
+				font-weight: bold;
+			}
