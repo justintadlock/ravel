@@ -18,10 +18,10 @@ Tags:
 /* Font Awesome */
 @font-face {
 	font-family: 'FontAwesome';
-	src: url('type/fontawesome-webfont.eot?v=4.0.0');
-	src: url('type/fontawesome-webfont.eot?#iefix&v=4.0.0') format('embedded-opentype'),
-		 url('type/fontawesome-webfont.woff?v=4.0.0') format('woff'),
-		 url('type/fontawesome-webfont.ttf?v=4.0.0') format('truetype');
+	src: url('fonts/font-awesome/fontawesome-webfont.eot?v=4.0.0');
+	src: url('fonts/font-awesome/fontawesome-webfont.eot?#iefix&v=4.0.0') format('embedded-opentype'),
+		 url('fonts/font-awesome/fontawesome-webfont.woff?v=4.0.0') format('woff'),
+		 url('fonts/font-awesome/fontawesome-webfont.ttf?v=4.0.0') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
