@@ -7,7 +7,7 @@
 			<div class="entry-byline">
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 				<?php hybrid_post_author( array( 'text' => __( 'By %s', 'ravel' ) ) ); ?>
-				<?php comments_popup_link( number_format_i18n( 0 ), number_format_i18n( 1 ), '%', 'comments-link', '' ); ?>
+				<?php comments_popup_link( __( '% Comments', 'ravel' ), __( '% Comment', 'ravel' ), __( '% Comments', 'ravel' ), 'comments-link', '' ); ?>
 				<?php edit_post_link(); ?>
 			</div><!-- .entry-byline -->
 
@@ -35,7 +35,7 @@
 			<div class="entry-byline">
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 				<?php hybrid_post_author( array( 'text' => __( 'By %s', 'ravel' ) ) ); ?>
-				<?php comments_popup_link( number_format_i18n( 0 ), number_format_i18n( 1 ), '%', 'comments-link', '' ); ?>
+				<?php comments_popup_link( __( '% Comments', 'ravel' ), __( '% Comment', 'ravel' ), __( '% Comments', 'ravel' ), 'comments-link', '' ); ?>
 				<?php edit_post_link(); ?>
 			</div><!-- .entry-byline -->
 
