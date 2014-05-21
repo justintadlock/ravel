@@ -18,6 +18,9 @@ add_action( 'widgets_init', 'ravel_register_sidebars', 5 );
 /* Register custom styles. */
 add_action( 'wp_enqueue_scripts', 'ravel_register_styles', 0 );
 
+/* Modifies the theme layout. */
+add_filter( 'theme_mod_theme_layout', 'ravel_mod_theme_layout', 15 );
+
 /**
  * Registers custom image sizes for the theme.
  *
@@ -86,4 +89,21 @@ function ravel_register_styles() {
 	wp_register_style( 'ravel-fonts', '//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Roboto:400,400italic,700,700italic' );
 	wp_register_style( 'ravel-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/mediaelementplayer.min.css' );
 	wp_register_style( 'ravel-wp-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/wp-mediaelement.css' );
+}
+
+/**
+ * Modifies the theme layout for specific pages.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  string  $layout
+ * @return string
+ */
+function ravel_mod_theme_layout( $layout ) {
+
+	if ( is_page_template( 'page-template-intro.php' ) || is_404() || is_singular( 'portfolio_item' ) || is_post_type_archive( 'portfolio_item' ) || is_tax( 'portfolio' ) ) {
+		$layout = '1c';
+	}
+
+	return $layout;
 }
