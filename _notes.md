@@ -10,3 +10,4 @@
 	* `<kbd>`
 	* `<tt>`
 	* `<var>`
+* Provide HTML for form elements in post content area.  `<fieldset>` should be looked at in particular.
