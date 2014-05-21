@@ -13,14 +13,13 @@
 
 			<header <?php hybrid_attr( 'header' ); ?>>
 
-				<?php if ( display_header_text() ) : // If user chooses to display header text. ?>
+				<?php //if ( display_header_text() ) : // If user chooses to display header text. ?>
 
 					<div id="branding">
 						<?php hybrid_site_title(); ?>
-						<?php hybrid_site_description(); ?>
 					</div><!-- #branding -->
 
-				<?php endif; // End check for header text. ?>
+				<?php //endif; // End check for header text. ?>
 
 				<?php hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template. ?>
 
