@@ -45,16 +45,16 @@ function stargazer_theme_setup() {
 	add_theme_support( 'hybrid-core-widgets' );
 
 	/* Theme layouts. */
-	/*
 	add_theme_support( 
 		'theme-layouts', 
 		array(
 			'1c'        => __( '1 Column',                     'ravel' ),
 			'2c-l'      => __( '2 Columns: Content / Sidebar', 'ravel' ),
-			'2c-r'      => __( '2 Columns: Sidebar / Content', 'ravel' )
+		//	'2c-r'      => __( '2 Columns: Sidebar / Content', 'ravel' )
 		),
-		array( 'default' => is_rtl() ? '2c-r' :'2c-l' ) 
-	);*/
+		array( 'default' => '2c-l' )
+		//array( 'default' => is_rtl() ? '2c-r' :'2c-l' ) 
+	);
 
 	/* Load stylesheets. */
 	add_theme_support(

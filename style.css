@@ -2966,16 +2966,16 @@ li.ping::after,
 			margin: 24px auto;
 		}
 		
-.sidebar-none .content {
+.layout-1c .content {
 	width: 92%;
 }
 		
-	.sidebar-none .entry {
+	.layout-1c .entry {
 		margin: 0 auto;
 		width: 
 	}
 		
-.sidebar-none #sidebar-primary {
+.layout-1c #sidebar-primary {
 	display: none;
 }
 
