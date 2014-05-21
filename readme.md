@@ -18,3 +18,4 @@ A work in progress...
 * Provide HTML for form elements in post content area.  `<fieldset>` should be looked at in particular.
 * Search form on Error template should be styled for the output of the `get_search_form()` function.  The use of this function is required.  See `.screen-reader-text` class.
 * Add `.screen-reader-text` class to `style.css` for general hiding of screen reader text.
+* Styles need adjusting when WP admin bar is showing, particularly the sidebar toggle.

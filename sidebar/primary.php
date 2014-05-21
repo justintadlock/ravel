@@ -2,6 +2,8 @@
 
 	<aside <?php hybrid_attr( 'sidebar', 'primary' ); ?>>
 
+		<h1 class="sidebar-toggle">Sidebar</h1><!-- .sidebar-toggle -->
+
 		<?php if ( is_active_sidebar( 'primary' ) ) : // If the sidebar has widgets. ?>
 
 			<?php dynamic_sidebar( 'primary' ); // Displays the primary sidebar. ?>
