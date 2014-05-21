@@ -1,3 +1,8 @@
+# Ravel WordPress Theme
+
+A work in progress...
+
+## Notes
 
 * `post-thumbnail` size (default for galleries)?
 * WordPress.org requires themes to display the site description somewhere.
