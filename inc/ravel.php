@@ -15,6 +15,9 @@ add_action( 'init', 'ravel_register_menus', 5 );
 /* Register sidebars. */
 add_action( 'widgets_init', 'ravel_register_sidebars', 5 );
 
+/* Add custom scripts. */
+add_action( 'wp_enqueue_scripts', 'ravel_enqueue_scripts' );
+
 /* Register custom styles. */
 add_action( 'wp_enqueue_scripts', 'ravel_register_styles', 0 );
 
@@ -72,6 +75,18 @@ function ravel_register_sidebars() {
 			'description' => __( 'The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.', 'ravel' )
 		)
 	);
+}
+
+/**
+ * Enqueues scripts.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function ravel_enqueue_scripts() {
+
+	wp_enqueue_script( 'ravel', trailingslashit( get_template_directory_uri() ) . 'js/ravel.js', array( 'jquery' ), null, true );
 }
 
 /**
