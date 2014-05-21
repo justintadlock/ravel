@@ -4,3 +4,9 @@
 * Chat post format should support more than two speakers in the CSS.
 * Post byline needs to break on mobile devices.
 * Footer content not aligned correctly when the Social menu is not set.
+* Unstyled HTML elements:
+	* `<acronym>`
+	* `<abbr>`
+	* `<kbd>`
+	* `<tt>`
+	* `<var>`
