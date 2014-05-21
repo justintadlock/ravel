@@ -35,6 +35,10 @@ function ravel_register_image_sizes() {
 
 	/* Adds the 'ravel-full' image size. */
 	add_image_size( 'ravel-full', 728, 9999, false );
+
+	/* Adds the 'ravel-portfolio-thumb' image size. */
+	if ( post_type_exists( 'portfolio_item' ) )
+		add_image_size( 'ravel-portfolio-thumb', 352, 352, true );
 }
 
 /**
