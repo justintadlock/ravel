@@ -122,3 +122,22 @@ function ravel_mod_theme_layout( $layout ) {
 
 	return $layout;
 }
+
+/* === CPT: PORTFOLIO PLUGIN. === */
+
+	/**
+	 * Returns a link to the porfolio item URL if it has been set.
+	 *
+	 * @since  0.1.0
+	 * @access public
+	 * @return void
+	 */
+	function ravel_get_portfolio_item_link() {
+
+		$url = get_post_meta( get_the_ID(), 'portfolio_item_url', true );
+
+		if ( !empty( $url ) )
+			return '<a class="portfolio-item-link button" href="' . esc_url( $url ) . '">' . __( 'Visit Project', 'ravel' ) . '</a>';
+	}
+
+/* End CPT: Portfolio section. */

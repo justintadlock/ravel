@@ -3219,7 +3219,7 @@ li.ping::after,
 			width: 100%;
 		}
 		
-			.button.portfolio-item {text-transform: uppercase;}
+			.button.portfolio-item-link {text-transform: uppercase;}
 			
 @media (max-width: 910px) {
 	.singular-portfolio_item .featured-media,
