@@ -19,3 +19,5 @@ A work in progress...
 * Search form on Error template should be styled for the output of the `get_search_form()` function.  The use of this function is required.  See `.screen-reader-text` class.
 * Add `.screen-reader-text` class to `style.css` for general hiding of screen reader text.
 * Styles need adjusting when WP admin bar is showing, particularly the sidebar toggle.
+* Comment text is really hard to read for me. Consider a larger font size.
+* No comment edit link.  This is pretty standard and should probably be added.
