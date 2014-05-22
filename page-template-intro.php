@@ -16,35 +16,8 @@ get_header(); // Loads the header.php template. ?>
 			<?php get_the_image( array( 'size' => 'ravel-medium', 'before' => '<section id="hero-image-container" class="col">', 'after' => '</section>' ) ); ?>
 
 			<section id="intro-quote-thumbnails" class="col">
-
-				<blockquote>
-					<?php the_content(); ?>
-				</blockquote>
-
-				<?php $children = get_children( 
-					array( 
-						'post_parent'    => get_the_ID(), 
-						'post_status'    => 'inherit',
-						'post_type'      => 'attachment',
-						'post_mime_type' => 'image',
-						'order'          => 'ASC',
-						'orderby'        => 'menu_order ID',
-						'numberposts'    => 2, 
-						'exclude'        => array( get_post_thumbnail_id() ) 
-					) 
-				); ?>
-
-
-				<?php if ( !empty( $children ) ) : // If image attachments found. ?>
-
-					<?php foreach ( $children as $attachment ) : // Loop through images. ?>
-
-						<?php echo wp_get_attachment_image( $attachment->ID, 'thumbnail', false, array( 'class' => 'thumbnail' ) ); ?>
-
-					<?php endforeach; // End images loop. ?>
-
-				<?php endif; // End check for image attachments found. */ ?>
-
+				<?php the_content(); ?>
+				<?php wp_link_pages(); ?>
 			</section><!-- #intro-quote-thumbnails -->
 
 		<?php endwhile; // End found posts loop. ?>
