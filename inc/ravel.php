@@ -12,8 +12,9 @@ add_action( 'init', 'ravel_register_image_sizes', 5 );
 /* Register custom menus. */
 add_action( 'init', 'ravel_register_menus', 5 );
 
-/* Register sidebars. */
+/* Register sidebars and widgets. */
 add_action( 'widgets_init', 'ravel_register_sidebars', 5 );
+add_action( 'widgets_init', 'ravel_register_widgets',  5 );
 
 /* Add custom scripts. */
 add_action( 'wp_enqueue_scripts', 'ravel_enqueue_scripts' );
@@ -78,6 +79,20 @@ function ravel_register_sidebars() {
 }
 
 /**
+ * Registers widgets.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function ravel_register_widgets() {
+
+	require_once( trailingslashit( get_template_directory() ) . 'inc/widget-ravel-tabs.php' );
+
+	register_widget( 'Ravel_Widget_Tabs' );
+}
+
+/**
  * Enqueues scripts.
  *
  * @since  1.0.0
@@ -86,7 +101,7 @@ function ravel_register_sidebars() {
  */
 function ravel_enqueue_scripts() {
 
-	wp_enqueue_script( 'ravel', trailingslashit( get_template_directory_uri() ) . 'js/ravel.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'ravel', trailingslashit( get_template_directory_uri() ) . 'js/ravel.js', array( 'jquery-ui-tabs' ), null, true );
 }
 
 /**
