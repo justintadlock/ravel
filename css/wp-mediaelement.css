@@ -3,11 +3,11 @@
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-loaded {
-	background: #8dc63f;
+	background: #2b2435;
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-current {
-	background: #d54e21;
+	background: #8dc63f;
 }
 
 .me-cannotplay {
@@ -69,7 +69,7 @@
 	border: 1px solid #333b41;
 	box-shadow: 12px 12px 0 rgba(0,0,0,.08);
 	padding: 10px;
-	margin: 14px 0 13px;
+	margin: 20px 0;
 }
 
 	.wp-audio-playlist .me-cannotplay span {

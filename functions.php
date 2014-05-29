@@ -20,14 +20,14 @@
  */
 
 /* Get the template directory and make sure it has a trailing slash. */
-$stargazer_dir = trailingslashit( get_template_directory() );
+$ravel_dir = trailingslashit( get_template_directory() );
 
 /* Load the Hybrid Core framework and launch it. */
-require_once( $stargazer_dir . 'library/hybrid.php' );
+require_once( $ravel_dir . 'library/hybrid.php' );
 new Hybrid();
 
 /* Set up the theme early. */
-add_action( 'after_setup_theme', 'stargazer_theme_setup', 5 );
+add_action( 'after_setup_theme', 'ravel_theme_setup', 5 );
 
 /**
  * The theme setup function.  This function sets up support for various WordPress and framework functionality.
@@ -36,7 +36,7 @@ add_action( 'after_setup_theme', 'stargazer_theme_setup', 5 );
  * @access public
  * @return void
  */
-function stargazer_theme_setup() {
+function ravel_theme_setup() {
 
 	/* Load files. */
 	require_once( trailingslashit( get_template_directory() ) . 'inc/ravel.php' );
@@ -46,14 +46,9 @@ function stargazer_theme_setup() {
 
 	/* Theme layouts. */
 	add_theme_support( 
-		'theme-layouts', 
-		array(
-			'1c'        => __( '1 Column',                     'ravel' ),
-			'2c-l'      => __( '2 Columns: Content / Sidebar', 'ravel' ),
-		//	'2c-r'      => __( '2 Columns: Sidebar / Content', 'ravel' )
-		),
-		array( 'default' => '2c-l' )
-		//array( 'default' => is_rtl() ? '2c-r' :'2c-l' ) 
+		'theme-layouts',
+		array( '1c' => __( '1 Column', 'ravel' ) ),
+		array( 'customize' => false, 'post_meta' => false )
 	);
 
 	/* Load stylesheets. */
@@ -76,6 +71,12 @@ function stargazer_theme_setup() {
 
 	/* Better captions for themes to style. */
 	add_theme_support( 'cleaner-caption' );
+	
+	/* If support for Cleaner Gallery is removed, remove default gallery style as well and use ambience's gallery CSS. */
+	if( !current_theme_supports('cleaner-gallery') ) {
+		/* Remove default gallery inline CSS */
+		add_filter( 'use_default_gallery_style', '__return_false' );
+		}
 
 	/* Automatically add feed links to <head>. */
 	add_theme_support( 'automatic-feed-links' );
@@ -87,7 +88,7 @@ function stargazer_theme_setup() {
 	);
 
 	/* Editor styles. */
-	//add_editor_style( ravel_get_editor_styles() );
+	add_editor_style( ravel_get_editor_styles() );
 
 	/* Handle content width for embeds and images. */
 	// Note: this is the largest size based on the theme's various layouts.

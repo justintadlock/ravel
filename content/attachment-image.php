@@ -1,7 +1,7 @@
 <article <?php hybrid_attr( 'post' ); ?>>
 
-	<?php if ( is_singular( get_post_type() ) ) : // If viewing a single post. ?>
-
+	<?php if ( is_attachment() ) : // If viewing a single attachment. ?>
+	
 		<header class="entry-header">
 
 			<div class="entry-byline">
@@ -16,15 +16,34 @@
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
+		
+			<?php if ( has_excerpt() ) : // If the image has an excerpt/caption. ?>
+
+				<?php $src = wp_get_attachment_image_src( get_the_ID(), 'full' ); ?>
+
+				<?php echo img_caption_shortcode( array( 'align' => 'alignnone', 'width' => esc_attr( $src[1] ), 'caption' => get_the_excerpt() ), wp_get_attachment_image( get_the_ID(), 'full', false ) ); ?>
+
+			<?php else : // If the image doesn't have a caption. ?>
+
+				<p><?php echo wp_get_attachment_image( get_the_ID(), 'full', false, array( 'class' => 'aligncenter ravel-full' ) ); ?></p>
+
+			<?php endif; // End check for image caption. ?>
+		
 			<?php the_content(); ?>
 			<?php wp_link_pages( array( 'before' => '<p class="page-links"><span class="page-links-text">' . __( 'Pages:', 'ravel' ) . '</span>', 'after' => '</p>' ) ); ?>
-		</div><!-- .entry-content -->
+			
+			<?php $gallery = gallery_shortcode( array( 'columns' => 4, 'numberposts' => 8, 'orderby' => 'rand', 'id' => get_queried_object()->post_parent, 'exclude' => get_the_ID() ) ); ?>
 
-		<footer class="entry-footer">
-			<a class="entry-permalink" href="<?php the_permalink(); ?>" rel="bookmark" itemprop="url"><?php _e( 'Permalink', 'ravel' ); ?></a>
-			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'sep' => ' ' ) ); ?>
-			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'sep' => ' ' ) ); ?>
-		</footer><!-- .entry-footer -->
+			<?php if ( !empty( $gallery ) ) : // Check if the gallery is not empty. ?>
+
+				<div class="attachment-image-gallery">
+					<h4><?php _e( 'Gallery', 'ravel' ); ?></h4>
+					<?php echo $gallery; ?>
+				</div>
+
+			<?php endif; // End gallery check. ?>
+
+		</div><!-- .entry-content -->
 
 	<?php else : // If not viewing a single post. ?>
 
@@ -38,22 +57,15 @@
 			</div><!-- .entry-byline -->
 
 			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
-			
-			<?php $count = hybrid_get_gallery_item_count(); ?>
-			<?php get_the_image( array( 'size' => 'ravel-medium', 'before' => '<div class="featured-media"><figure>', 'after' => '</figure><span class="gallery-items-count">' . sprintf( _n( '%s item', '%s items', $count, 'ravel' ), $count ) . '</span></div>' ) ); ?>
+
+			<?php get_the_image( array( 'size' => 'ravel-medium', 'before' => '<div class="featured-media"><figure>', 'after' => '</figure></div>' ) ); ?>
 
 		</header><!-- .entry-header -->
-
+		
 		<div <?php hybrid_attr( 'entry-summary' ); ?>>
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 
-		<footer class="entry-footer">
-			<a class="entry-permalink" href="<?php the_permalink(); ?>" rel="bookmark" itemprop="url"><?php _e( 'Permalink', 'ravel' ); ?></a>
-			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'sep' => ' ' ) ); ?>
-			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'sep' => ' ' ) ); ?>
-		</footer><!-- .entry-footer -->
-
-	<?php endif; // End single post check. ?>
+	<?php endif; // End single attachment check. ?>
 
 </article><!-- .entry -->

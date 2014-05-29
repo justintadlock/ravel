@@ -1,0 +1,20 @@
+@import url( '../style.css' );
+
+/* Styles specific to the editor. */
+
+body#tinymce {
+	background: #2d3a42;
+	border: none;
+	color: #9cc4dd;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+	}
+	
+img.aligncenter,
+img.alignnone,
+img.alignleft,
+img.alignright{
+	background: #161d21;
+	border: 1px solid #333b41;
+	padding: 11px;
+}

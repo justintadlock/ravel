@@ -1,6 +1,19 @@
 <?php if ( is_singular( get_post_type() ) ) : // If viewing a single post. ?>
 
-	<?php get_the_image( array( 'size' => 'ravel-full', 'split_content' => true, 'scan_raw' => true, 'scan' => true, 'order' => array( 'scan_raw', 'scan', 'featured', 'attachment' ), 'before' => '<div class="featured-media">', 'after' => '</div>' ) ); ?>
+	<?php
+
+		$attached_images = ravel_attached_images();
+
+		if ( !empty( $attached_images ) ) { // If there are attached images
+
+			echo $attached_images;
+
+		} else {
+		
+			get_the_image( array( 'size' => 'ravel-large', 'attachment' => false, 'before' => '<div class="featured-media"><figure>', 'after' => '</figure></div>' ) );
+		
+		} // End check for attachments
+	?>
 
 	<article <?php hybrid_attr( 'post' ); ?>>
 
@@ -13,7 +26,8 @@
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php the_content(); ?>
 			<?php echo wpautop( ravel_get_portfolio_item_link() ); ?>
-			<?php wp_link_pages(); ?>
+			<?php wp_link_pages( array( 'before' => '<p class="page-links"><span class="page-links-text">' . __( 'Pages:', 'ravel' ) . '</span>', 'after' => '</p>' ) ); ?>
+			<?php edit_post_link(); ?>
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer">

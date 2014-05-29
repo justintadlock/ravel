@@ -25,6 +25,12 @@ add_action( 'wp_enqueue_scripts', 'ravel_register_styles', 0 );
 /* Modifies the theme layout. */
 add_filter( 'theme_mod_theme_layout', 'ravel_mod_theme_layout', 15 );
 
+/* Modifies the excerpt more */
+add_filter('excerpt_more', 'ravel_excerpt_more');
+
+/* Adds custom settings for the visual editor. */
+add_filter( 'tiny_mce_before_init', 'ravel_tiny_mce_before_init' );
+
 /**
  * Registers custom image sizes for the theme.
  *
@@ -73,7 +79,7 @@ function ravel_register_sidebars() {
 		array(
 			'id'          => 'primary',
 			'name'        => _x( 'Primary', 'sidebar', 'ravel' ),
-			'description' => __( 'The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.', 'ravel' )
+			'description' => __( 'The main sidebar.', 'ravel' )
 		)
 	);
 }
@@ -138,6 +144,105 @@ function ravel_mod_theme_layout( $layout ) {
 	return $layout;
 }
 
+/**
+ * Get attached images.
+ *
+ * @since  1.0.0
+ */
+function ravel_attached_images() {
+
+	$children = array(
+		'post_parent' => get_the_ID(),
+		'post_status' => 'inherit',
+		'post_type' => 'attachment',
+		'post_mime_type' => 'image',
+		'order' => 'ASC',
+		'orderby' => 'menu_order ID'
+	);
+
+	/* Get image attachments. If none, return. */
+	$attachments = get_children( $children );
+
+	if ( empty( $attachments ) )
+		return '';
+		
+	$out = '<div class="featured-media">';
+
+	/* Loop through each attachment. */
+	foreach ( $attachments as $id => $attachment ) {
+
+		$out .= '<figure>' . wp_get_attachment_link( $id, 'ravintola-large', false );
+		
+		$caption = wptexturize( esc_html( $attachment->post_excerpt ) );
+
+		if ( !empty( $caption ) )
+			$out .= '<figcaption class="gallery-caption">' . $caption . '</figcaption>';
+			
+		$out .= '</figure>';
+		
+	}
+	
+	$out .= '</div>';
+
+	return $out;
+}
+
+/**
+ * Modifies the excerpt more
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function ravel_excerpt_more($more) {
+	global $post;
+	return '<a class="moretag read-more-link" href="'. get_permalink($post->ID) . '">&#133;</a>';
+}
+
+/**
+ * Adds the <body> class to the visual editor.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array  $settings
+ * @return array
+ */
+function ravel_tiny_mce_before_init( $settings ) {
+
+	$settings['body_class'] = join( ' ', get_body_class() );
+
+	return $settings;
+}
+
+/**
+ * Callback function for adding editor styles.  Use along with the add_editor_style() function.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return array
+ */
+function ravel_get_editor_styles() {
+
+	/* Set up an array for the styles. */
+	$editor_styles = array();
+
+	/* Add the theme's editor styles. */
+	$editor_styles[] = trailingslashit( get_template_directory_uri() ) . 'css/editor-style.css';
+
+	/* If a child theme, add its editor styles. Note: WP checks whether the file exists before using it. */
+	if ( is_child_theme() && file_exists( trailingslashit( get_stylesheet_directory() ) . 'css/editor-style.css' ) )
+		$editor_styles[] = trailingslashit( get_stylesheet_directory_uri() ) . 'css/editor-style.css';
+
+	/* Add the locale stylesheet. */
+	$editor_styles[] = get_locale_stylesheet_uri();
+
+	/* Uses Ajax to display custom theme styles added via the Theme Mods API. */
+	$editor_styles[] = add_query_arg( 'action', 'ravel_editor_styles', admin_url( 'admin-ajax.php' ) );
+
+	/* Return the styles. */
+	return $editor_styles;
+}
+
 /* === CPT: PORTFOLIO PLUGIN. === */
 
 	/**
@@ -152,7 +257,7 @@ function ravel_mod_theme_layout( $layout ) {
 		$url = get_post_meta( get_the_ID(), 'portfolio_item_url', true );
 
 		if ( !empty( $url ) )
-			return '<a class="portfolio-item-link button" href="' . esc_url( $url ) . '">' . __( 'Visit Project', 'ravel' ) . '</a>';
+			return '<a class="button portfolio-item-link" href="' . esc_url( $url ) . '">' . __( 'Visit Project', 'ravel' ) . '</a>';
 	}
 
 /* End CPT: Portfolio section. */

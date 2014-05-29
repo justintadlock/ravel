@@ -2,44 +2,39 @@
 
 A work in progress...
 
-## Notes
+### Changes:
 
-* `post-thumbnail` size (default for galleries)?
-* WordPress.org requires themes to display the site description somewhere.
-* Chat post format should support more than two speakers in the CSS.
-* Post byline needs to break on mobile devices.
-* Footer content not aligned correctly when the Social menu is not set.
-* Unstyled HTML elements:
-	* `<acronym>`
-	* `<abbr>`
-	* `<kbd>`
-	* `<tt>`
-	* `<var>`
-* Provide HTML for form elements in post content area.  `<fieldset>` should be looked at in particular.
-* Search form on Error template should be styled for the output of the `get_search_form()` function.  The use of this function is required.  See `.screen-reader-text` class.
-* Add `.screen-reader-text` class to `style.css` for general hiding of screen reader text.
-* Styles need adjusting when WP admin bar is showing, particularly the sidebar toggle.
-* Comment text is really hard to read for me. Consider a larger font size.
-* No comment edit link.  This is pretty standard and should probably be added.
+* FontAwesome updated to v.4.1.0
+* Bunch of CSS changes
+* PHP/HTML in all `content/` files
+* CSS classes in wiget-ravel-tabs.php. Also, widget class changed to `widget_util_tabs`
+* Theme Layout `customize` and `post_meta` are set to false. This is because the theme is not designed for one column. It just look awkward.
+* The way Singular Portfolio Items grab attached images
+* `taxonomy-portfolio.php` now uses `archive-portfolio_item.php`
+* Added editor style CSS
+* Added `searchform.php`
+* Added `menu/portfolio.php`
+* `sidebar/primary.php now` checks for `if ( $layout !== 'layout-1c' )` instead of `get_theme_mod`
 
-### Intro page template "issues":
+### Notes:
+* in `js/ravel.js`, `if ( jQuery( 'body' ).has( '.tabs-nav' ) ) {` seems to be irrelevant. If you change it to `.has( '.safdsafdsfas' )`, the code within the conditional still executes, but shouldn't.
 
-It seems like a great template for a custom client site, but this seems like it'd be one of those WTF things trying to explain this one for users in a public-release theme.  Any time you have to explain, "Upload this many images. No don't add them to your content.", it's a support nightmare.
+## TODO's:
 
-Issues for users:
+* Logo customizer setting
+* Search widget not working. Seems to be a Hybrid Core problem. Ravel is using 
+* Filter `get_search_form()` output based on `searchform.php`
+* Finish up tabs widget
+* Full RTL support? This is up to you. I'm a bit lazy to test for RTL. In `style.css`, there are some RTL CSS carried over from my previous themes.
+* Language .pot file.
+* Double check all files
+* Run theme check plugin
+* Demo site (I'll take care of this if you give me access to it)
+* Theme screenshot -- this is based on the demo site so will add this after demo is set up.
 
-* The #2 and #3 images are going to be confusing.
-* The #2 and #3 images are going to be hard to change after first setting them.
-* The `<blockquote>` wrapping the post content is going to cause issues with whatever HTML the user throws into the editor.
-* The layout is never going to line up all nice and neat like it's done in `page-template-intro.html` anyway.
-
-My proposal for changes is something like this:
-
-	<!-- featured-image -->
-	<img />
-
-	<!-- post content section -->
-	<article>
-	</article>
-
-Of course, all that's really doing is adding the featured image to the normal page output.  But, it's not confusing to users.
+### Tabs Widget:
+* This widget is used to display up to 4 groups of content: Recent Posts, Popular Posts, Comments, and Tags. You can also use it to display just `Recent Comments` or just `Popular Posts` -- I really like this part from the orignal widget.
+* When more than one group of content are on display, the widget title is automatically hidden in favor of the tabs nav. Right now, the widget displays the title unless the title is empty.
+* Can you bring back the category link for the Recent Posts and Popular Posts entries or replace it with a post format archive link?
+* For Recent Posts, Popular Posts, and Recent Comments, allow users to select number of entries to display.
+* Allow users to set the order of tabs.

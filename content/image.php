@@ -15,11 +15,9 @@
 
 		</header><!-- .entry-header -->
 
-		<?php get_the_image( array( 'size' => 'ravel-medium', 'split_content' => true, 'scan_raw' => true, 'scan' => true, 'order' => array( 'scan_raw', 'scan', 'featured', 'attachment' ), 'before' => '<div class="featured-media">', 'after' => '</div>' ) ); ?>
-
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php the_content(); ?>
-			<?php wp_link_pages(); ?>
+			<?php wp_link_pages( array( 'before' => '<p class="page-links"><span class="page-links-text">' . __( 'Pages:', 'ravel' ) . '</span>', 'after' => '</p>' ) ); ?>
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer">
@@ -38,10 +36,10 @@
 				<?php comments_popup_link( __( '0 Comments', 'ravel' ), __( '1 Comment', 'ravel' ), __( '% Comments', 'ravel' ), 'comments-link', '' ); ?>
 				<?php edit_post_link(); ?>
 			</div><!-- .entry-byline -->
+			
+			<?php get_the_image( array( 'size' => 'ravel-medium', 'split_content' => true, 'scan_raw' => true, 'scan' => true, 'order' => array( 'scan_raw', 'scan', 'featured', 'attachment' ), 'before' => '<div class="featured-media"><figure>', 'after' => '</figure></div>' ) ); ?>
 
 		</header><!-- .entry-header -->
-
-		<?php get_the_image( array( 'size' => 'ravel-medium', 'split_content' => true, 'scan_raw' => true, 'scan' => true, 'order' => array( 'scan_raw', 'scan', 'featured', 'attachment' ), 'before' => '<div class="featured-media">', 'after' => '</div>' ) ); ?>
 
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php the_content(); ?>

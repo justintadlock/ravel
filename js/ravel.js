@@ -7,12 +7,12 @@
 
 		jQuery( document ).ready( function() {
 		
-			/* menu toggle */
-			jQuery( '.menu-toggle' ).click(function() {
-
-				jQuery( this ).next().toggleClass( 'active' );
-	
-			});
+			jQuery( '.menu-toggle' ).click(
+				function() {
+					jQuery( this ).parent().children( '.wrap' ).fadeToggle();
+					jQuery( this ).toggleClass( 'active' );
+				}
+			);
 			
 			/* sidebar toggle */
 			jQuery( '.sidebar-toggle' ).click(function() {
@@ -38,9 +38,9 @@
 			
 			}
 			
-			if ( jQuery( 'body' ).has( '.alx-tabs-nav' ) ) {
+			if ( jQuery( 'body' ).has( '.tabs-nav' ) ) {
 
-				jQuery( '.alx-tabs-nav ' ).each( function (index) {
+				jQuery( '.tabs-nav ' ).each( function (index) {
 			
 					jQuery( this ).parent().tabs();
 				

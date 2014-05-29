@@ -13,13 +13,11 @@
 
 			<h1 <?php hybrid_attr( 'entry-title' ); ?>><?php single_post_title(); ?></h1>
 
-			<?php get_the_image( array( 'size' => 'ravel-medium', 'attachment' => false, 'link_to_post' => false, 'before' => '<div class="featured-media">', 'after' => '</div>' ) ); ?>
-
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php the_content(); ?>
-			<?php wp_link_pages(); ?>
+			<?php wp_link_pages( array( 'before' => '<p class="page-links"><span class="page-links-text">' . __( 'Pages:', 'ravel' ) . '</span>', 'after' => '</p>' ) ); ?>
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer">
@@ -41,7 +39,7 @@
 
 			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
 
-			<?php get_the_image( array( 'size' => 'ravel-medium', 'attachment' => false, 'before' => '<div class="featured-media">', 'after' => '</div>' ) ); ?>
+			<?php get_the_image( array( 'size' => 'ravel-medium', 'attachment' => false, 'before' => '<div class="featured-media"><figure>', 'after' => '</figure></div>' ) ); ?>
 
 		</header><!-- .entry-header -->
 

@@ -2,7 +2,7 @@
 
 <main <?php hybrid_attr( 'content' ); ?>>
 
-	<?php locate_template( array( 'misc/loop-meta.php' ), true ); // Loads the misc/loop-meta.php template. ?>
+	<?php hybrid_get_menu( 'portfolio' ); // Loads the menu/primary.php template. ?>
 
 	<?php if ( have_posts() ) : // Checks if any posts were found. ?>
 
@@ -14,7 +14,13 @@
 
 				<li>
 					<figure>
-						<?php get_the_image( array( 'size' => 'ravel-medium', 'scan' => true, 'order' => array( 'scan', 'featured', 'attachment' ) ) ); ?>
+						<?php get_the_image( array(
+							'default' => hybrid_locate_theme_file( array( 'images/placeholder-540.png' ) ),
+							'size' => 'ravel-medium',
+							'scan' => true,
+							'order' => array( 'scan', 'featured', 'attachment', 'default' )
+							)
+						); ?>
 					</figure>
 				</li>
 

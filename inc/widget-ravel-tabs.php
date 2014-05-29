@@ -22,7 +22,7 @@ class Ravel_Widget_Tabs extends WP_Widget {
 
 		/* Set up the widget options. */
 		$widget_options = array(
-			'classname'   => 'widget_alx_tabs',
+			'classname'   => 'widget_util_tabs',
 			'description' => esc_html__( 'Outputs recent posts, popular posts, recent comments, and tags in tab form.', 'ravel' )
 		);
 
@@ -74,13 +74,13 @@ class Ravel_Widget_Tabs extends WP_Widget {
 			);
 		?>
 
-		<ul class="alx-tabs-nav group tab-count-4">
+		<ul class="tabs-nav group tab-count-4">
 			<?php foreach ( $tabs as $tab => $label ) : ?>
-				<?php printf( '<li class="alx-tab tab-%s"><a href="#%s" title="%3$s"><span>%3$s</span></a></li>', esc_attr( $tab ), esc_attr( "{$this->id_base}-{$tab}" ), esc_attr( $label ) ); ?>
+				<?php printf( '<li class="tab-%s"><a href="#%s" title="%3$s"><span>%3$s</span></a></li>', esc_attr( $tab ), esc_attr( "{$this->id_base}-{$tab}" ), esc_attr( $label ) ); ?>
 			<?php endforeach; ?>
-		</ul><!-- .alx-tabs-nav -->
+		</ul><!-- .tabs-nav -->
 
-		<div class="alx-tabs-container">
+		<div class="tabs-container">
 
 			<?php $loop = new WP_Query( 
 				array( 
@@ -89,19 +89,19 @@ class Ravel_Widget_Tabs extends WP_Widget {
 				) 
 			); ?>
 
-			<ul id="<?php echo esc_attr( $this->id_base ); ?>-recent" class="alx-tabs-panel group thumbs-enabled">
+			<ul id="<?php echo esc_attr( $this->id_base ); ?>-recent" class="tabs-panel group thumbs-enabled">
 
 				<?php while ( $loop->have_posts() ) : ?>
 
 					<?php $loop->the_post(); ?>
 
 					<li>
-						<?php get_the_image( array( 'size' => 'post-thumbnail', 'before' => '<div class="tab-item-thumbnail">', 'after' => '</div>' ) ); ?>
+						<?php get_the_image( array( 'size' => 'post-thumbnail', 'before' => '<div class="tab-thumbnail">', 'after' => '</div>' ) ); ?>
 
-						<div class="tab-item-inner group">
-							<?php the_title( '<div class="tab-item-title"><a href="' . get_permalink() . '">', '</a></div>' ); ?>
-							<div class="tab-item-date"><?php echo get_the_date(); ?></div>
-						</div><!-- .tab-item-inner -->
+						<div class="tab-content">
+							<?php the_title( '<div class="tab-title"><a href="' . get_permalink() . '">', '</a></div>' ); ?>
+							<div class="tab-date"><?php echo get_the_date(); ?></div>
+						</div><!-- .tab-content -->
 					</li>
 
 				<?php endwhile; ?>
@@ -120,19 +120,19 @@ class Ravel_Widget_Tabs extends WP_Widget {
 				) 
 			); ?>
 
-			<ul id="<?php echo esc_attr( $this->id_base ); ?>-popular" class="alx-tabs-panel group thumbs-enabled">
+			<ul id="<?php echo esc_attr( $this->id_base ); ?>-popular" class="tabs-panel thumbs-enabled">
 
 				<?php while ( $loop->have_posts() ) : ?>
 
 					<?php $loop->the_post(); ?>
 
 					<li>
-						<?php get_the_image( array( 'size' => 'post-thumbnail', 'before' => '<div class="tab-item-thumbnail">', 'after' => '</div>' ) ); ?>
+						<?php get_the_image( array( 'size' => 'post-thumbnail', 'before' => '<div class="tab-thumbnail">', 'after' => '</div>' ) ); ?>
 
-						<div class="tab-item-inner group">
-							<?php the_title( '<div class="tab-item-title"><a href="' . get_permalink() . '">', '</a></div>' ); ?>
-							<div class="tab-item-date"><?php echo get_the_date(); ?></div>
-						</div><!-- .tab-item-inner -->
+						<div class="tab-content">
+							<?php the_title( '<div class="tab-title"><a href="' . get_permalink() . '">', '</a></div>' ); ?>
+							<div class="tab-date"><?php echo get_the_date(); ?></div>
+						</div><!-- .tab-content -->
 					</li>
 
 				<?php endwhile; ?>
@@ -142,40 +142,40 @@ class Ravel_Widget_Tabs extends WP_Widget {
 
 			<?php if ( !empty( $comments ) ) : ?>
 
-				<ul id="<?php echo esc_attr( $this->id_base ); ?>-comments" class="alx-tabs-panel group avatars-enabled">
+				<ul id="<?php echo esc_attr( $this->id_base ); ?>-comments" class="tabs-panel avatars-enabled">
 
 					<?php foreach ( $comments as $comment ) : ?>
 
 						<li>
-							<div class="tab-item-avatar">
+							<div class="tab-thumbnail avatar">
 								<?php printf( '<a href="%s">%s</a>', esc_url( get_comment_link( $comment->comment_ID ) ), get_avatar( $comment->comment_author_email, 96 ) ); ?>
 							</div>
 
-							<div class="tab-item-inner group">
-								<div class="tab-item-author">
+							<div class="tab-content">
+								<div class="tab-author">
 									<cite><?php comment_author( $comment->comment_ID ); ?></cite>
 								</div>
-								<div class="tab-item-comment">
+								<div class="tab-comment">
 									<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 										<?php comment_excerpt( $comment->comment_ID ); ?>
 									</a>
 								</div>	
-							</div><!-- .tab-item-inner -->
+							</div><!-- .tab-content -->
 						</li>
 
 					<?php endforeach; ?>
 
-				</ul><!--/.alx-tab-->
+				</ul><!--.tabs-panel-->
 
 			<?php endif; ?>
 
-			<ul id="<?php echo esc_attr( $this->id_base ); ?>-tags" class="alx-tabs-panel group">
+			<ul id="<?php echo esc_attr( $this->id_base ); ?>-tags" class="tabs-panel">
 				<li>
 					<?php wp_tag_cloud(); ?>
 				</li>
-			</ul><!-- .alx-tab -->
+			</ul><!-- .tabs-panel -->
 
-		</div><!-- .alx-tabs-container -->
+		</div><!-- .tabs-container -->
 		<?php
 
 		/* Close the sidebar's widget wrapper. */
