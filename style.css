@@ -1348,8 +1348,7 @@ li.ping::after {
 
 			/* skip to content link */
 			.assistive-text,
-			.screen-reader-text,
-			.widget_search label {
+			.screen-reader-text {
 				left: -9999em;
 				overflow: hidden;
 				position: absolute;
