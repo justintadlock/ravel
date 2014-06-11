@@ -16,7 +16,7 @@
 					'title'  => '',
 				),
 				array(
-					'before_widget' => '<section class="widget widget_alx_tabs">',
+					'before_widget' => '<section class="widget widget_util_tabs">',
 					'after_widget'  => '</section>',
 					'before_title'  => '<h3 class="widget-title">',
 					'after_title'   => '</h3>'
