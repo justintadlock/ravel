@@ -99,8 +99,15 @@ class Ravel_Widget_Tabs extends WP_Widget {
 						<?php get_the_image( array( 'size' => 'post-thumbnail', 'before' => '<div class="tab-thumbnail">', 'after' => '</div>' ) ); ?>
 
 						<div class="tab-content">
+
+							<div class="tab-category">
+								<?php hybrid_post_format_link(); ?>
+							</div><!-- .tab-category -->
+
 							<?php the_title( '<div class="tab-title"><a href="' . get_permalink() . '">', '</a></div>' ); ?>
+
 							<div class="tab-date"><?php echo get_the_date(); ?></div>
+
 						</div><!-- .tab-content -->
 					</li>
 
@@ -130,8 +137,15 @@ class Ravel_Widget_Tabs extends WP_Widget {
 						<?php get_the_image( array( 'size' => 'post-thumbnail', 'before' => '<div class="tab-thumbnail">', 'after' => '</div>' ) ); ?>
 
 						<div class="tab-content">
+
+							<div class="tab-category">
+								<?php hybrid_post_format_link(); ?>
+							</div><!-- .tab-category -->
+
 							<?php the_title( '<div class="tab-title"><a href="' . get_permalink() . '">', '</a></div>' ); ?>
+
 							<div class="tab-date"><?php echo get_the_date(); ?></div>
+
 						</div><!-- .tab-content -->
 					</li>
 
