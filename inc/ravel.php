@@ -50,8 +50,8 @@ function ravel_register_image_sizes() {
 	/* Adds the 'ravel-medium' image size. */
 	add_image_size( 'ravel-medium', 540, 540, true );
 
-	/* Adds the 'ravel-full' image size. */
-	add_image_size( 'ravel-full', 728, 9999, false );
+	/* Adds the 'ravel-large' image size. */
+	add_image_size( 'ravel-large', 728, 9999, false );
 
 	/* Adds the 'ravel-portfolio-thumb' image size. */
 	if ( post_type_exists( 'portfolio_item' ) )

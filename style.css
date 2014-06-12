@@ -818,7 +818,7 @@ form {
 
 img.size-full,
 .attachment-full,
-.ravel-full {
+.ravel-large {
 	height: auto !important;
 	max-width: 100% !important;
 	width: auto !important;
