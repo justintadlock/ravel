@@ -175,7 +175,7 @@ function ravel_attached_images() {
 	/* Loop through each attachment. */
 	foreach ( $attachments as $id => $attachment ) {
 
-		$out .= '<figure>' . wp_get_attachment_link( $id, 'ravintola-large', false );
+		$out .= '<figure>' . wp_get_attachment_link( $id, 'ravel-large', false );
 		
 		$caption = wptexturize( esc_html( $attachment->post_excerpt ) );
 
