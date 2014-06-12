@@ -40,8 +40,12 @@ add_filter( 'tiny_mce_before_init', 'ravel_tiny_mce_before_init' );
  */
 function ravel_register_image_sizes() {
 
-	/* Sets the 'post-thumbnail' size. */
-	//set_post_thumbnail_size( 175, 131, true );
+	/*
+	 * Sets the 'post-thumbnail' size. This is based off the default WordPress' 'thumbnail' size of 
+	 * 150x150, so only a single image is created if the settings are the same.  Otherwise, the theme's 
+	 * 'post-thumbnail' size will be used.
+	 */
+	set_post_thumbnail_size( 150, 150, true );
 
 	/* Adds the 'ravel-medium' image size. */
 	add_image_size( 'ravel-medium', 540, 540, true );
