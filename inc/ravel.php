@@ -28,6 +28,9 @@ add_filter( 'theme_mod_theme_layout', 'ravel_mod_theme_layout', 15 );
 /* Modifies the excerpt more */
 add_filter('excerpt_more', 'ravel_excerpt_more');
 
+/* Custom search form. */
+add_filter( 'get_search_form', 'ravel_search_form' );
+
 /* Adds custom settings for the visual editor. */
 add_filter( 'tiny_mce_before_init', 'ravel_tiny_mce_before_init' );
 
@@ -201,6 +204,35 @@ function ravel_attached_images() {
 function ravel_excerpt_more($more) {
 	global $post;
 	return '<a class="moretag read-more-link" href="'. get_permalink($post->ID) . '">&#133;</a>';
+}
+
+/**
+ * Creates a custom search form for the theme.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  string  $form
+ * @return string
+ */
+function ravel_search_form( $form ) {
+
+	$form = sprintf( 
+		'<form role="search" method="get" class="search-form" action="%s">  
+			<div>
+				<label>
+					<span class="screen-reader-text">%s</span>
+					<input class="search-text" type="text" name="s" placeholder="%s" />
+				</label>
+				<input class="search-submit button" name="submit" type="submit" value="%s" />
+			</div>
+		</form><!-- .search-form -->',
+		esc_url( home_url( '/' ) ),
+		_x( 'Search', 'screen reader text', 'ravel' ),
+		esc_attr__( 'Search for &hellip;', 'ravel' ),
+		esc_attr_x( 'Search', 'submit button', 'ravel' )
+	);
+
+	return $form;
 }
 
 /**
