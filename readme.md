@@ -22,8 +22,8 @@ A work in progress...
 ## TODO's:
 
 * Logo customizer setting
-* Search widget not working. Seems to be a Hybrid Core problem. Ravel is using 
-* Filter `get_search_form()` output based on `searchform.php`
+* <del>Search widget not working. Seems to be a Hybrid Core problem. Ravel is using</del> 
+* <del>Filter `get_search_form()` output based on `searchform.php`</del>
 * Finish up tabs widget
 * Full RTL support? This is up to you. I'm a bit lazy to test for RTL. In `style.css`, there are some RTL CSS carried over from my previous themes.
 * Language .pot file.
@@ -33,8 +33,11 @@ A work in progress...
 * Theme screenshot -- this is based on the demo site so will add this after demo is set up.
 
 ### Tabs Widget:
-* This widget is used to display up to 4 groups of content: Recent Posts, Popular Posts, Comments, and Tags. You can also use it to display just `Recent Comments` or just `Popular Posts` -- I really like this part from the orignal widget.
+
+* This widget is used to display up to 4 groups of content: Recent Posts, Popular Posts, Comments, and Tags. You can also use it to display just `Recent Comments` or just `Popular Posts` -- I really like this part from the original widget.
 * When more than one group of content are on display, the widget title is automatically hidden in favor of the tabs nav. Right now, the widget displays the title unless the title is empty.
-* Can you bring back the category link for the Recent Posts and Popular Posts entries or replace it with a post format archive link?
+	* <ins>This is standard behavior for widgets.  If the user inputs a title, a title is expected.  If left empty, the title should not show.  Doing otherwise also can also mess with plugins that filter some of the widget-related hooks.</ins>
+* <del>Can you bring back the category link for the Recent Posts and Popular Posts entries or replace it with a post format archive link?</del>
+	* <ins>Used the post format link. That's easier to control since uses won't be putting 100 of those in.</ins>
 * For Recent Posts, Popular Posts, and Recent Comments, allow users to select number of entries to display.
 * Allow users to set the order of tabs.
