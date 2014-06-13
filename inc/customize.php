@@ -18,6 +18,13 @@ add_action( 'customize_register', 'ravel_customize_register' );
  */
 function ravel_customize_register( $wp_customize ) {
 
+	/* Load JavaScript files. */
+	add_action( 'customize_preview_init', 'ravel_enqueue_customizer_scripts' );
+
+	/* Enable live preview for WordPress theme features. */
+	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+
 	/* Add single-letter site title setting. */
 	$wp_customize->add_setting(
 		'single_letter',
@@ -27,7 +34,7 @@ function ravel_customize_register( $wp_customize ) {
 			'capability'           => 'edit_theme_options',
 		//	'sanitize_callback'    => 'sanitize_hex_color_no_hash',
 		//	'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//	'transport'            => 'postMessage',
+			'transport'            => 'postMessage',
 		)
 	);
 
@@ -40,5 +47,26 @@ function ravel_customize_register( $wp_customize ) {
 			'settings' => 'single_letter',
 			'type'     => 'checkbox',
 		)
+	);
+}
+
+/**
+ * Loads theme customizer JavaScript.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function ravel_enqueue_customizer_scripts() {
+
+	/* Use the .min script if SCRIPT_DEBUG is turned off. */
+	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+	wp_enqueue_script(
+		'stargazer-customize',
+		trailingslashit( get_template_directory_uri() ) . "js/customize{$suffix}.js",
+		array( 'jquery' ),
+		null,
+		true
 	);
 }
