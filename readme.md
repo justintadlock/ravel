@@ -22,7 +22,7 @@ A work in progress...
 
 ## TODO's:
 
-* Logo customizer setting
+* <del>Logo customizer setting</del>
 * <del>Search widget not working. Seems to be a Hybrid Core problem. Ravel is using</del> 
 * <del>Filter `get_search_form()` output based on `searchform.php`</del>
 * Finish up tabs widget
