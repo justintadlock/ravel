@@ -119,7 +119,7 @@ function ravel_enqueue_scripts() {
 
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-	wp_enqueue_script( 'ravel', trailingslashit( get_template_directory_uri() ) . "js/ravel{$suffix}.js", array( 'jquery-ui-tabs' ), null, true );
+	wp_enqueue_script( 'ravel', trailingslashit( get_template_directory_uri() ) . "js/ravel{$suffix}.js", array( 'jquery' ), null, true );
 }
 
 /**

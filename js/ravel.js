@@ -29,10 +29,24 @@ jQuery( document ).ready( function() {
 	}
 
 	/* Tabs. */
-	/*jQuery( '.tabs-nav ' ).each(
-		function( index ) {
-			jQuery( this ).parent().tabs();
+	jQuery( '.widget_util_tabs .tabs-panel' ).hide();
+	jQuery( '.widget_util_tabs .tabs-panel:first-of-type' ).show();
+	jQuery( '.widget_util_tabs .tabs-nav :first-child' ).attr( 'aria-selected', 'true' );
+
+	jQuery( '.widget_util_tabs .tabs-nav li a' ).click(
+		function( j ) {
+			j.preventDefault();
+
+			var href = jQuery( this ).attr( 'href' );
+
+			jQuery( this ).parents( '.widget_util_tabs' ).find( '.tabs-panel' ).hide();
+
+			jQuery( this ).parents( '.widget_util_tabs' ).find( href ).show();
+
+			jQuery( this ).parents( '.widget_util_tabs' ).find( '.tab-title' ).attr( 'aria-selected', 'false' );
+
+			jQuery( this ).parent().attr( 'aria-selected', 'true' );
 		}
-	);*/
+	);
 
 } );

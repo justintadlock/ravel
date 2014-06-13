@@ -3009,7 +3009,7 @@ li.ping::after {
 				.widget_util_tabs .tabs-nav li.tab-tags a::before {content: '\f02c';}
 
 			/* Tabs Nav link */
-			.widget_util_tabs .tabs-nav li.ui-tabs-active a {
+			.widget_util_tabs .tabs-nav li[aria-selected="true"] a {
 				background: #161d21;
 				border-color: #f74037 #252d31 #161d21 #252d31;
 			}

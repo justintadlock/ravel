@@ -92,7 +92,7 @@ class Ravel_Widget_Tabs extends WP_Widget {
 
 		<ul class="tabs-nav group tab-count-4">
 			<?php foreach ( $tabs as $tab => $label ) : ?>
-				<?php printf( '<li class="tab-%s"><a href="#%s" title="%3$s"><span>%3$s</span></a></li>', esc_attr( $tab ), esc_attr( "{$this->id_base}-{$tab}" ), esc_attr( $label ) ); ?>
+				<?php printf( '<li class="tab-%s tab-title"><a href="#%s" title="%3$s"><span>%3$s</span></a></li>', esc_attr( $tab ), esc_attr( "{$this->id_base}-{$tab}" ), esc_attr( $label ) ); ?>
 			<?php endforeach; ?>
 		</ul><!-- .tabs-nav -->
 
