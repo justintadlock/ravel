@@ -25,6 +25,9 @@ add_action( 'wp_enqueue_scripts', 'ravel_register_styles', 0 );
 /* Modifies the theme layout. */
 add_filter( 'theme_mod_theme_layout', 'ravel_mod_theme_layout', 15 );
 
+/* Modify attributes. */
+add_filter( 'hybrid_attr_branding', 'ravel_attr_branding' );
+
 /* Modifies the excerpt more */
 add_filter('excerpt_more', 'ravel_excerpt_more');
 
@@ -194,6 +197,22 @@ function ravel_attached_images() {
 	$out .= '</div>';
 
 	return $out;
+}
+
+/**
+ * Branding attributes.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array   $attr
+ * @return array
+ */
+function ravel_attr_branding( $attr ) {
+
+	if ( get_theme_mod( 'single_letter', false ) )
+		$attr['class'] = 'single-letter';
+
+	return $attr;
 }
 
 /**

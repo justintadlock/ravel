@@ -15,7 +15,7 @@
 
 				<?php //if ( display_header_text() ) : // If user chooses to display header text. ?>
 
-					<div id="branding">
+					<div <?php hybrid_attr( 'branding' ); ?>>
 						<?php hybrid_site_title(); ?>
 					</div><!-- #branding -->
 

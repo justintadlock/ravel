@@ -39,7 +39,8 @@ add_action( 'after_setup_theme', 'ravel_theme_setup', 5 );
 function ravel_theme_setup() {
 
 	/* Load files. */
-	require_once( trailingslashit( get_template_directory() ) . 'inc/ravel.php' );
+	require_once( trailingslashit( get_template_directory() ) . 'inc/ravel.php'     );
+	require_once( trailingslashit( get_template_directory() ) . 'inc/customize.php' );
 
 	/* Load widgets. */
 	add_theme_support( 'hybrid-core-widgets' );
