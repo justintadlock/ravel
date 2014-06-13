@@ -29,10 +29,10 @@ jQuery( document ).ready( function() {
 	}
 
 	/* Tabs. */
-	jQuery( '.tabs-nav ' ).each(
+	/*jQuery( '.tabs-nav ' ).each(
 		function( index ) {
 			jQuery( this ).parent().tabs();
 		}
-	);
+	);*/
 
 } );
