@@ -23,7 +23,7 @@ jQuery( document ).ready( function() {
 
 		value.bind( function( to ) {
 
-			jQuery( '#site-description' ).html( to );
+			jQuery( '#site-title' ).attr( 'title', to );
 
 		} ); // value.bind
 

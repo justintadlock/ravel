@@ -26,7 +26,8 @@ add_action( 'wp_enqueue_scripts', 'ravel_register_styles', 0 );
 add_filter( 'theme_mod_theme_layout', 'ravel_mod_theme_layout', 15 );
 
 /* Modify attributes. */
-add_filter( 'hybrid_attr_branding', 'ravel_attr_branding' );
+add_filter( 'hybrid_attr_branding',   'ravel_attr_branding'   );
+add_filter( 'hybrid_attr_site-title', 'ravel_attr_site_title' );
 
 /* Modifies the excerpt more */
 add_filter('excerpt_more', 'ravel_excerpt_more');
@@ -211,6 +212,22 @@ function ravel_attr_branding( $attr ) {
 
 	if ( get_theme_mod( 'single_letter', false ) )
 		$attr['class'] = 'single-letter';
+
+	return $attr;
+}
+
+/**
+ * Site title attributes.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array   $attr
+ * @return array
+ */
+function ravel_attr_site_title( $attr ) {
+
+	if ( $desc = get_bloginfo( 'description' ) )
+		$attr['title'] = esc_attr( strip_tags( $desc ) );
 
 	return $attr;
 }
