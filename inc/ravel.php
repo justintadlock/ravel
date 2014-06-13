@@ -20,7 +20,8 @@ add_action( 'widgets_init', 'ravel_register_widgets',  5 );
 add_action( 'wp_enqueue_scripts', 'ravel_enqueue_scripts' );
 
 /* Register custom styles. */
-add_action( 'wp_enqueue_scripts', 'ravel_register_styles', 0 );
+add_action( 'wp_enqueue_scripts',    'ravel_register_styles',       0 );
+add_action( 'admin_enqueue_scripts', 'ravel_admin_register_styles', 0 );
 
 /* Modifies the theme layout. */
 add_filter( 'theme_mod_theme_layout', 'ravel_mod_theme_layout', 15 );
@@ -138,6 +139,18 @@ function ravel_register_styles() {
 	wp_register_style( 'ravel-fonts', '//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Roboto:400,400italic,700,700italic' );
 	wp_register_style( 'ravel-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/mediaelementplayer.min.css' );
 	wp_register_style( 'ravel-wp-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/wp-mediaelement.css' );
+}
+
+/**
+ * Registers stylesheets for use in the admin.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function ravel_admin_register_styles() {
+	wp_register_style( 'ravel-fonts', '//fonts.googleapis.com/css?family=Lora:400,700,400italic' );
+	wp_register_style( 'ravel-admin-custom-header', trailingslashit( get_template_directory_uri() ) . 'css/admin-custom-header.css' );
 }
 
 /**

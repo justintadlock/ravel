@@ -26,6 +26,9 @@ $ravel_dir = trailingslashit( get_template_directory() );
 require_once( $ravel_dir . 'library/hybrid.php' );
 new Hybrid();
 
+/* Load theme-specific files. */
+require_once( $ravel_dir . 'inc/custom-header.php' );
+
 /* Set up the theme early. */
 add_action( 'after_setup_theme', 'ravel_theme_setup', 5 );
 

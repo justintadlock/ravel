@@ -1,0 +1,95 @@
+/* fake <body> class */
+div.wordpress {
+	overflow: hidden;
+	position: relative;
+	background: #2d3a42 url(../images/body_gradient.png) repeat-x;
+}
+
+.page-container > .wrap {
+	margin: 0 auto;
+	max-width: 1200px;
+	position: relative;
+	}
+
+	/* start background decoration shapes */
+	.page-container > .wrap::before,
+	.page-container > .wrap::after {
+		background: transparent;
+		border: 700px solid rgba(0,0,0,0.07);
+		content: '';
+		height: 3200px;
+		margin: -1600px -128px 0 0;
+		position: absolute;
+			right: 50%;
+			top: 0;
+		transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			-o-transform: rotate(45deg);
+		width: 3200px;
+		z-index: -1;
+	}
+
+
+
+#header {
+	clear: both;
+	float: left;
+	padding: 70px 0 0;
+	position: relative;
+	width: 100%;
+	}
+
+	#branding {
+		margin: 32px 0 30px;
+		padding: 0 15%;
+		text-align: center;
+		}
+		
+		#branding img {
+			height: auto;
+			max-width: 100%;
+			width: auto;
+		}
+
+		#site-title {
+			color: #a0cfeb;
+			display: inline-block;
+			font-family: Lora, Georgia, serif;
+			font-size: 72px;
+			font-weight: 700;
+			font-style: italic;
+			letter-spacing: -0.02em;
+			line-height: 90px;
+			margin: 0 auto;
+			text-shadow: 9px 9px 0 rgba(0,0,0,.2);
+		}
+		
+			#site-title a {
+				color: #a0cfeb;
+				display: inline-block;
+				text-decoration: none;
+			}
+			#site-title a:hover {
+				color: #e3f4ff;
+				text-decoration: none;
+			}
+
+			/* single letter site-title version */
+			.single-letter #site-title a {
+				border: 9px solid #a0cfec;
+				box-shadow: 9px 9px 0 rgba(0,0,0,.2), inset 9px 9px 0 rgba(0,0,0,.2);
+				display: inline-block;
+				font-size: 0;
+				height: 108px;
+				overflow: hidden;
+				width: 108px;
+			}
+			.single-letter #site-title a:hover {
+				border-color: #e3f4ff;
+				}
+			.single-letter #site-title a:first-letter {
+				font-size: 72px;
+				line-height: 90px;
+			}
