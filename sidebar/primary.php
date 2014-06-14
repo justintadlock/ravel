@@ -1,4 +1,4 @@
-<?php $layout = theme_layouts_get_layout(); if ( $layout !== 'layout-1c' ) : // If not a one-column layout. ?>
+<?php if ( '1c' !== get_theme_mod( 'theme_layout' ) ) : // If not a one-column layout. ?>
 
 	<aside <?php hybrid_attr( 'sidebar', 'primary' ); ?>>
 
