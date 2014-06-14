@@ -78,7 +78,11 @@ function ravel_register_image_sizes() {
  */
 function ravel_register_menus() {
 	register_nav_menu( 'primary', _x( 'Primary', 'nav menu location', 'ravel' ) );
-	register_nav_menu( 'social', _x( 'Social',   'nav menu location', 'ravel' ) );
+	register_nav_menu( 'social',  _x( 'Social',  'nav menu location', 'ravel' ) );
+
+	/* Only register the portfolio menu if the post type exists. */
+	if ( post_type_exists( 'portfolio_item' ) )
+		register_nav_menu( 'portfolio',  _x( 'Portfolio', 'nav menu location', 'ravel' ) );
 }
 
 /**
