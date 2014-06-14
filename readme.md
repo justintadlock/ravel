@@ -25,12 +25,13 @@ A work in progress...
 * <del>Logo customizer setting</del>
 * <del>Search widget not working. Seems to be a Hybrid Core problem. Ravel is using</del> 
 * <del>Filter `get_search_form()` output based on `searchform.php`</del>
-* Finish up tabs widget
+* <del>Finish up tabs widget</del>
 * Full RTL support? This is up to you. I'm a bit lazy to test for RTL. In `style.css`, there are some RTL CSS carried over from my previous themes.
 	* <ins>This can actually be quite involved and is best done from the ground up as the theme is being built. You'd do a better job with this since you wrote the CSS. For v.1.0, I say to wait on this.</ins>
 * Language .pot file.
 * Double check all files
-* Run theme check plugin
+* <del>Run theme check plugin</del>
+	* <ins>Checks out fine, pending the screenshot.</ins>
 * Demo site (I'll take care of this if you give me access to it)
 * Theme screenshot -- this is based on the demo site so will add this after demo is set up.
 
@@ -38,7 +39,7 @@ A work in progress...
 
 * <del>This widget is used to display up to 4 groups of content: Recent Posts, Popular Posts, Comments, and Tags. You can also use it to display just `Recent Comments` or just `Popular Posts` -- I really like this part from the original widget.</del>
 	* <ins>I decided to allow the user to set the number of posts, comments, or tags to "0".  In that case, the tab doesn't show.  It's not as intuitive, but it does cut out 4 options.</ins>
-* When more than one group of content are on display, the widget title is automatically hidden in favor of the tabs nav. Right now, the widget displays the title unless the title is empty.
+* <del>When more than one group of content are on display, the widget title is automatically hidden in favor of the tabs nav. Right now, the widget displays the title unless the title is empty.</del>
 	* <ins>This is standard behavior for widgets.  If the user inputs a title, a title is expected.  If left empty, the title should not show.  Doing otherwise also can also mess with plugins that filter some of the widget-related hooks.</ins>
 	* <ins>Decided on not setting a default title for the widget. This way, the user must enter a title if they want it to show.</ins>
 * <del>Can you bring back the category link for the Recent Posts and Popular Posts entries or replace it with a post format archive link?</del>
