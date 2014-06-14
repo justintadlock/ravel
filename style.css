@@ -2999,7 +2999,7 @@ li.ping::after {
 		.tab-thumbnail.avatar + .tab-content {padding-left: 66px;}
 
 			.tab-author,
-			.tab-category,
+			.tab-post-format,
 			.tab-date {
 				font-family: Lora, Georgia, sans-serif;
 				font-size: 12px;
@@ -3009,7 +3009,7 @@ li.ping::after {
 					font-weight: 700;
 				}
 
-			.tab-category a {
+			.tab-post-format a {
 				color: #8d9ca6;
 				text-transform: uppercase;	
 			}

@@ -91,7 +91,7 @@ class Ravel_Widget_Tabs extends WP_Widget {
 
 		?>
 
-		<ul class="tabs-nav group tab-count-4">
+		<ul class="tabs-nav">
 			<?php foreach ( $tabs as $tab => $label ) : ?>
 				<?php printf( '<li class="tab-%s tab-title"><a href="#%s" title="%3$s"><span>%3$s</span></a></li>', esc_attr( $tab ), esc_attr( "{$this->id_base}-{$tab}" ), esc_attr( $label ) ); ?>
 			<?php endforeach; ?>
@@ -108,7 +108,7 @@ class Ravel_Widget_Tabs extends WP_Widget {
 					) 
 				); ?>
 
-				<ul id="<?php echo esc_attr( $this->id_base ); ?>-recent" class="tabs-panel group thumbs-enabled">
+				<ul id="<?php echo esc_attr( $this->id_base ); ?>-recent" class="tabs-panel">
 
 					<?php while ( $loop->have_posts() ) : ?>
 
@@ -119,9 +119,9 @@ class Ravel_Widget_Tabs extends WP_Widget {
 
 							<div class="tab-content">
 
-								<div class="tab-category">
+								<div class="tab-post-format">
 									<?php hybrid_post_format_link(); ?>
-								</div><!-- .tab-category -->
+								</div><!-- .tab-post-format -->
 
 								<?php the_title( '<div class="tab-title"><a href="' . get_permalink() . '">', '</a></div>' ); ?>
 
@@ -150,7 +150,7 @@ class Ravel_Widget_Tabs extends WP_Widget {
 					) 
 				); ?>
 
-				<ul id="<?php echo esc_attr( $this->id_base ); ?>-popular" class="tabs-panel thumbs-enabled">
+				<ul id="<?php echo esc_attr( $this->id_base ); ?>-popular" class="tabs-panel">
 
 					<?php while ( $loop->have_posts() ) : ?>
 
@@ -161,9 +161,9 @@ class Ravel_Widget_Tabs extends WP_Widget {
 
 							<div class="tab-content">
 
-								<div class="tab-category">
+								<div class="tab-post-format">
 									<?php hybrid_post_format_link(); ?>
-								</div><!-- .tab-category -->
+								</div><!-- .tab-post-format -->
 
 								<?php the_title( '<div class="tab-title"><a href="' . get_permalink() . '">', '</a></div>' ); ?>
 
@@ -188,7 +188,7 @@ class Ravel_Widget_Tabs extends WP_Widget {
 
 				<?php if ( !empty( $comments ) ) : ?>
 
-					<ul id="<?php echo esc_attr( $this->id_base ); ?>-comments" class="tabs-panel avatars-enabled">
+					<ul id="<?php echo esc_attr( $this->id_base ); ?>-comments" class="tabs-panel">
 
 						<?php foreach ( $comments as $comment ) : ?>
 
