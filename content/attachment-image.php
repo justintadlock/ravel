@@ -25,7 +25,7 @@
 
 			<?php else : // If the image doesn't have a caption. ?>
 
-				<p><?php echo wp_get_attachment_image( get_the_ID(), 'full', false, array( 'class' => 'aligncenter ravel-full' ) ); ?></p>
+				<?php echo wpautop( wp_get_attachment_image( get_the_ID(), 'full', false, array( 'class' => 'aligncenter ravel-full' ) ) ); ?>
 
 			<?php endif; // End check for image caption. ?>
 		
