@@ -818,7 +818,7 @@ form {
 
 img.size-full,
 .attachment-full,
-.ravel-large {
+.ravel-full {
 	height: auto !important;
 	max-width: 100% !important;
 	width: auto !important;
@@ -856,11 +856,13 @@ img.wp-smiley,
 .alignleft {
 	float: left;
 	margin: 18px 24px 12px 0;
+	max-width: 50%;
 	}
 
 .alignright {
 	float: right;
 	margin: 18px 0 12px 24px;
+	max-width: 50%;
 	}
 	
 img.aligncenter,
@@ -1749,7 +1751,7 @@ li.ping::after {
 						nav.menu li li a::before {
 							color: rgba(255,255,255,.5);
 							content: '\f10c';
-							font-size: 10px;
+							font-size: 9px;
 							line-height: 24px;
 							margin-right: 15px;
 							vertical-align: top;
@@ -3410,6 +3412,14 @@ nav.menu ul ul,
 /* === 2nd break point === */
 
 @media (max-width: 600px) {
+
+/* Image Alignment */
+
+.alignleft,
+.alignright {
+	float: none;
+	margin: 20px auto;
+	}
 
 	/* === Gallery === */
 	
