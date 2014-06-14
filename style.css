@@ -1832,7 +1832,9 @@ li.ping::after {
 	.widget img {max-width: 100%;}
 	
 	.entry-content img,
-	.featured-media figure,
+	.entry .featured-media img,
+	.archive-portfolio_item .featured-media figure,
+	.singular-portfolio_item .featured-media figure,
 	.chat-transcript,
 	.widget {
 		background: #161d21;
@@ -1876,7 +1878,7 @@ li.ping::after {
 		}
 			.entry-footer .entry-permalink::before {
 				content: '\f0c1';
-				font-size: 14px;
+				font-size: 15px;
 				margin-top: 6px;
 				line-height: 24px;
 				vertical-align: top;
@@ -1979,13 +1981,6 @@ li.ping::after {
 		.featured-media .wp-video .mejs-video {
 			margin: 0;
 		}
-		
-		.featured-media figure {display: inline-block;}
-
-			.featured-media > a,
-			.featured-media img {
-				display: block;
-			}
 			
 			.featured-media img {
 				height: auto;
@@ -3246,7 +3241,6 @@ li.ping::after {
 		width: 64.54%;
 	}
 		.singular-portfolio_item .featured-media figure {
-			display: block;
 			margin: 0 0 24px;
 			overflow: hidden;
 			position: relative;
@@ -3254,6 +3248,12 @@ li.ping::after {
 		.singular-portfolio_item .featured-media > *{
 			margin-bottom: 24px;
 		}
+		
+			.singular-portfolio_item .featured-media a,
+			.singular-portfolio_item .featured-media img {
+				display: block;
+			}
+		
 			.singular-portfolio_item .featured-media figcaption {
 				background: rgba(0,0,0,0.5);
 				color: #fff;

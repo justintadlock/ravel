@@ -17,6 +17,7 @@
 
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php the_content(); ?>
+			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer">
@@ -36,7 +37,7 @@
 				<?php edit_post_link(); ?>
 			</div><!-- .entry-byline -->
 			
-			<?php get_the_image( array( 'size' => 'ravel-medium', 'split_content' => true, 'scan_raw' => true, 'scan' => true, 'order' => array( 'scan_raw', 'scan', 'featured', 'attachment' ), 'before' => '<div class="featured-media"><figure>', 'after' => '</figure></div>' ) ); ?>
+			<?php get_the_image( array( 'size' => 'ravel-medium', 'split_content' => true, 'scan_raw' => true, 'scan' => true, 'order' => array( 'scan_raw', 'scan', 'featured', 'attachment' ), 'before' => '<div class="featured-media">', 'after' => '</div>' ) ); ?>
 
 		</header><!-- .entry-header -->
 

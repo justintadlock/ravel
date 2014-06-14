@@ -9,17 +9,16 @@
 
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php the_content(); ?>
+			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
 
 	<?php else : // If not viewing a single page. ?>
 
 		<header class="entry-header">
 
-			<div class="entry-byline">
-				<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
-			</div><!-- .entry-byline -->
+			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
 
-			<?php get_the_image( array( 'size' => 'ravel-medium', 'before' => '<div class="featured-media"><figure>', 'after' => '</figure></div>' ) ); ?>
+			<?php get_the_image( array( 'size' => 'ravel-medium', 'before' => '<div class="featured-media">', 'after' => '</div>' ) ); ?>
 
 		</header><!-- .entry-header -->
 

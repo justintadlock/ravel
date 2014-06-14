@@ -17,6 +17,7 @@
 
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php the_content(); ?>
+			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer">
@@ -39,7 +40,7 @@
 			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
 			
 			<?php $count = hybrid_get_gallery_item_count(); ?>
-			<?php get_the_image( array( 'size' => 'ravel-medium', 'before' => '<div class="featured-media"><figure>', 'after' => '</figure><span class="gallery-items-count">' . sprintf( _n( '%s item', '%s items', $count, 'ravel' ), $count ) . '</span></div>' ) ); ?>
+			<?php get_the_image( array( 'size' => 'ravel-medium', 'before' => '<div class="featured-media">', 'after' => '<span class="gallery-items-count">' . sprintf( _n( '%s item', '%s items', $count, 'ravel' ), $count ) . '</span></div>' ) ); ?>
 
 		</header><!-- .entry-header -->
 

@@ -30,6 +30,7 @@
 			<?php endif; // End check for image caption. ?>
 
 			<?php the_content(); ?>
+			<?php wp_link_pages(); ?>
 			
 			<?php $gallery = gallery_shortcode( array( 'columns' => 4, 'numberposts' => 8, 'orderby' => 'rand', 'id' => get_queried_object()->post_parent, 'exclude' => get_the_ID() ) ); ?>
 
@@ -57,7 +58,7 @@
 
 			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
 
-			<?php get_the_image( array( 'size' => 'ravel-medium', 'before' => '<div class="featured-media"><figure>', 'after' => '</figure></div>' ) ); ?>
+			<?php get_the_image( array( 'size' => 'ravel-medium', 'before' => '<div class="featured-media">', 'after' => '</div>' ) ); ?>
 
 		</header><!-- .entry-header -->
 		
