@@ -3165,22 +3165,51 @@ li.ping::after {
 		.loop-entries-gallery li {
 			display: inline-block;
 			margin: 12px;
-			text-align: left;
+			position: relative;
 			vertical-align: top;
 			width: 28%;
 			word-spacing: 0;
 			}
+		 
+		@media (max-width: 768px) {.loop-entries-gallery li {width: 40%;}}
+		@media (max-width: 600px) {.loop-entries-gallery li {width: auto;}}
 
-			.loop-entries-gallery li a,
-			.loop-entries-gallery li a img {
-				/* remove additional spacing at the bottom of each entry */
-				display: block;
+			.loop-entries-gallery figure {
+				z-index: 1;
 			}
+			
+				.loop-entries-gallery li figure a,
+				.loop-entries-gallery li figure a img {
+					/* remove additional spacing at the bottom of each entry */
+					display: block;
+				}
 
-			.loop-entries-gallery li a img {
-				height: auto;
-				max-width: 100%;
-			}
+				.loop-entries-gallery li figure a img {
+					height: auto;
+					max-width: 100%;
+				}
+				
+			.loop-entries-gallery .entry-title {
+				background: rgba(0,0,0,.8);
+				clear: none;
+				float: none;
+				font: normal 18px/27px Roboto, Arial, Heletica, sans-serif;
+				letter-spacing: 0;
+				margin: 0;
+				opacity: 0;
+				padding: 10px 18px;
+				position: absolute;
+					right: 12px;
+					bottom: 12px;
+					left: 12px;
+				text-align: center;
+				width: auto;
+				z-index: 1;
+				}
+			
+			.loop-entries-gallery li:hover .entry-title {
+				opacity: 1;
+				}
 			
 	/* === Pagination === */
 
@@ -3328,6 +3357,7 @@ nav.menu ul ul,
 .loop-pagination .page-numbers::after,
 #sidebar-primary,
 .sidebar-toggle:hover::before,
+.loop-entries-gallery .entry-title,
 .singular-portfolio_item .featured-media figcaption {
 	transition: all 0.3s ease-in-out;
 		-webkit-transition: all 0.3s ease-in-out;
@@ -3346,7 +3376,7 @@ nav.menu ul ul,
 			
 			.content {width: 92%;}
 			
-}
+} /* end @media max-width: 1199px */
 
 /* === 2nd break point === */
 
@@ -3490,11 +3520,6 @@ nav.menu ul ul,
 		padding: 0 15%;
 		text-align: center;
 		}
-	#branding {
-		margin: 32px 0 30px;
-		padding: 0 15%;
-		text-align: center;
-		}
 
 		#site-title {
 			font-size: 36px;
@@ -3515,4 +3540,4 @@ nav.menu ul ul,
 					margin: 9px 0 0 0;
 				}
 		
-} /* end @media 2nd break point */
+} /* end @media max-width: 600px */
