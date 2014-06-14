@@ -14,11 +14,12 @@
 
 				<li>
 					<figure>
-						<?php get_the_image( array(
-							'default' => hybrid_locate_theme_file( array( 'images/placeholder-540.png' ) ),
-							'size' => 'ravel-medium',
-							'scan' => true,
-							'order' => array( 'scan', 'featured', 'attachment', 'default' )
+						<?php get_the_image(
+							array(
+								'default' => hybrid_locate_theme_file( array( 'images/placeholder-540.png' ) ),
+								'size'    => 'ravel-medium',
+								'scan'    => true,
+								'order'   => array( 'scan', 'featured', 'attachment', 'default' )
 							)
 						); ?>
 					</figure>

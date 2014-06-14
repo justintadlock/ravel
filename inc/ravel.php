@@ -82,7 +82,7 @@ function ravel_register_menus() {
 
 	/* Only register the portfolio menu if the post type exists. */
 	if ( post_type_exists( 'portfolio_item' ) )
-		register_nav_menu( 'portfolio',  _x( 'Portfolio', 'nav menu location', 'ravel' ) );
+		register_nav_menu( 'portfolio', _x( 'Portfolio', 'nav menu location', 'ravel' ) );
 }
 
 /**
@@ -126,7 +126,7 @@ function ravel_register_widgets() {
  */
 function ravel_enqueue_scripts() {
 
-	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 	wp_enqueue_script( 'ravel', trailingslashit( get_template_directory_uri() ) . "js/ravel{$suffix}.js", array( 'jquery' ), null, true );
 }
@@ -143,8 +143,8 @@ function ravel_register_styles() {
 	wp_deregister_style( 'mediaelement'    );
 	wp_deregister_style( 'wp-mediaelement' );
 
-	wp_register_style( 'ravel-fonts', '//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Roboto:400,400italic,700,700italic' );
-	wp_register_style( 'ravel-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/mediaelementplayer.min.css' );
+	wp_register_style( 'ravel-fonts',           '//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Roboto:400,400italic,700,700italic' );
+	wp_register_style( 'ravel-mediaelement',    trailingslashit( get_template_directory_uri() ) . 'css/mediaelementplayer.min.css' );
 	wp_register_style( 'ravel-wp-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/wp-mediaelement.css' );
 }
 
@@ -185,12 +185,12 @@ function ravel_mod_theme_layout( $layout ) {
 function ravel_attached_images() {
 
 	$children = array(
-		'post_parent' => get_the_ID(),
-		'post_status' => 'inherit',
-		'post_type' => 'attachment',
+		'post_parent'    => get_the_ID(),
+		'post_status'    => 'inherit',
+		'post_type'      => 'attachment',
 		'post_mime_type' => 'image',
-		'order' => 'ASC',
-		'orderby' => 'menu_order ID'
+		'order'          => 'ASC',
+		'orderby'        => 'menu_order ID'
 	);
 
 	/* Get image attachments. If none, return. */
@@ -198,21 +198,20 @@ function ravel_attached_images() {
 
 	if ( empty( $attachments ) )
 		return '';
-		
+
 	$out = '<div class="featured-media">';
 
 	/* Loop through each attachment. */
 	foreach ( $attachments as $id => $attachment ) {
 
 		$out .= '<figure>' . wp_get_attachment_link( $id, 'ravel-large', false );
-		
+
 		$caption = wptexturize( esc_html( $attachment->post_excerpt ) );
 
 		if ( !empty( $caption ) )
 			$out .= '<figcaption class="gallery-caption">' . $caption . '</figcaption>';
-			
+
 		$out .= '</figure>';
-		
 	}
 	
 	$out .= '</div>';
@@ -259,9 +258,8 @@ function ravel_attr_site_title( $attr ) {
  * @access public
  * @return void
  */
-function ravel_excerpt_more($more) {
-	global $post;
-	return '<a class="moretag read-more-link" href="'. get_permalink($post->ID) . '">&#133;</a>';
+function ravel_excerpt_more( $more ) {
+	return '<a class="moretag read-more-link" href="'. get_permalink() . '">&#133;</a>';
 }
 
 /**
@@ -345,9 +343,6 @@ function ravel_get_editor_styles() {
 
 	/* Add the locale stylesheet. */
 	$editor_styles[] = get_locale_stylesheet_uri();
-
-	/* Uses Ajax to display custom theme styles added via the Theme Mods API. */
-	$editor_styles[] = add_query_arg( 'action', 'ravel_editor_styles', admin_url( 'admin-ajax.php' ) );
 
 	/* Return the styles. */
 	return $editor_styles;
