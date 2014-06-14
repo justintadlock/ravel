@@ -45,6 +45,7 @@ class Ravel_Widget_Tabs extends WP_Widget {
 			'title'                   => '', // No default title.
 			'recent_posts_number'     => 3,
 			'popular_posts_number'    => 3,
+			'popular_past_months'     => 1,
 			'recent_comments_number'  => 3,
 			'tag_cloud_number'        => 45,
 		);
@@ -143,7 +144,7 @@ class Ravel_Widget_Tabs extends WP_Widget {
 						'ignore_sticky_posts' => true,
 						'date_query'          => array(
 							array(
-								'after' => '6 months ago'
+								'after' => 1 === $args['popular_past_months'] ? '1 month ago' : sprintf( '%s months ago', $args['popular_past_months'] )
 							)
 						)
 					) 
@@ -257,6 +258,7 @@ class Ravel_Widget_Tabs extends WP_Widget {
 		$instance['popular_posts_number']   = absint( $new_instance['popular_posts_number']   );
 		$instance['recent_comments_number'] = absint( $new_instance['recent_comments_number'] );
 		$instance['tag_cloud_number']       = absint( $new_instance['tag_cloud_number']       );
+		$instance['popular_past_months']    = absint( $new_instance['popular_past_months']    );
 
 		/* Return sanitized options. */
 		return $instance;
@@ -286,6 +288,10 @@ class Ravel_Widget_Tabs extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'popular_posts_number' ); ?>"><?php _e( 'Number of popular posts to show?', 'ravel' ); ?></label>
 			<input type="number" class="smallfat code" size="5" min="0" id="<?php echo $this->get_field_id( 'popular_posts_number' ); ?>" name="<?php echo $this->get_field_name( 'popular_posts_number' ); ?>" value="<?php echo esc_attr( $instance['popular_posts_number'] ); ?>" placeholder="0" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'popular_past_months' ); ?>"><?php _e( 'Show popular posts from last __ months:', 'ravel' ); ?></label>
+			<input type="number" class="smallfat code" size="5" min="1" max="12" id="<?php echo $this->get_field_id( 'popular_past_months' ); ?>" name="<?php echo $this->get_field_name( 'popular_past_months' ); ?>" value="<?php echo esc_attr( $instance['popular_past_months'] ); ?>" placeholder="1" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'recent_comments_number' ); ?>"><?php _e( 'Number of comments to show?', 'ravel' ); ?></label>
