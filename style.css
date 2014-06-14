@@ -1982,9 +1982,14 @@ li.ping::after {
 			margin: 0;
 		}
 			
+			/* for all images in featured-media */
 			.featured-media img {
 				height: auto;
 				max-width: 100%;
+			}
+			/* for normal images in featured-media, exclude all special uses like ones on portfolio pages */
+			.entry .featured-media > img {
+				margin: 0 !important;
 			}
 	
 	/* === Entry Content === */
