@@ -1345,7 +1345,7 @@ li.ping::after {
 
 	/* === Menu: Primary === */
 
-	#menu-primary {
+	nav#menu-primary {
 		padding: 9px 0;
 		text-align: center;
 		z-index: 4;
@@ -1612,7 +1612,7 @@ li.ping::after {
 /* === Responsive Menu === */
 @media only screen and (max-width: 782px) {
 
-	#menu-primary {
+	nav#menu-primary {
 		margin: 0;
 		padding: 0;
 		text-align: left;
@@ -1643,7 +1643,7 @@ li.ping::after {
 
 				.menu-toggle-link:hover::before {color: #fff;}
 
-		#menu-primary .wrap {
+		nav#menu-primary .wrap {
 			clear: both;
 			display: none;
 			margin-bottom: 12px;
@@ -1653,7 +1653,7 @@ li.ping::after {
 		
 			/* Menu structure */
 
-			#menu-primary ul ul {
+			nav#menu-primary ul ul {
 				background: transparent;
 				left: auto;
 				min-width: 0;
@@ -1662,29 +1662,29 @@ li.ping::after {
 				top: auto;
 				visibility: visible;
 			}
-				#menu-primary li > ul::before {display: none;}
+				nav#menu-primary li > ul::before {display: none;}
 				
-				#menu-primary ul ul ul {
+				nav#menu-primary ul ul ul {
 					left: auto;
 					margin: 0;
 					top: auto;
 				}
-					#menu-primary li li > ul::before {display: none;}
+					nav#menu-primary li li > ul::before {display: none;}
 
-				#menu-primary li li:hover > ul {
+				nav#menu-primary li li:hover > ul {
 					margin: 0;
 				}
 					
 			/* Menu content */
 			
-			#menu-primary li {
+			nav#menu-primary li {
 				width: 100%;
 				word-spacing: 0;
 			}
 			
 				/* links */
-				#menu-primary li a,
-					#menu-primary li li a {
+				nav#menu-primary li a,
+					nav#menu-primary li li a {
 					background: #101619;
 					border: 0;
 					border-bottom: 1px solid #1d2529;
@@ -1699,8 +1699,8 @@ li.ping::after {
 					}
 
 				/* link hovers */
-				#menu-primary li a:hover,
-					#menu-primary li li a:hover  {
+				nav#menu-primary li a:hover,
+					nav#menu-primary li li a:hover  {
 					background: #000;
 				}
 					nav.menu li li > a::after,
@@ -1708,7 +1708,7 @@ li.ping::after {
 						
 					/* === lower level links === */
 
-					#menu-primary li li a {
+					nav#menu-primary li li a {
 						padding-left: 35px;
 					}
 
@@ -1721,13 +1721,13 @@ li.ping::after {
 							vertical-align: top;
 							}
 
-						#menu-primary li li li a {padding-left: 75px; }
+						nav#menu-primary li li li a {padding-left: 75px; }
 
-							#menu-primary li li li li a {padding-left: 115px;}
+							nav#menu-primary li li li li a {padding-left: 115px;}
 							
 				/* current links */
-				#menu-primary li.current-menu-item > a,
-					#menu-primary li li.current-menu-item > a {
+				nav#menu-primary li.current-menu-item > a,
+					nav#menu-primary li li.current-menu-item > a {
 						color: #a0cfec;
 						}
 					
