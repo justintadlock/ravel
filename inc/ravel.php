@@ -33,6 +33,9 @@ add_filter( 'hybrid_attr_site-title', 'ravel_attr_site_title' );
 /* Modifies the excerpt more */
 add_filter('excerpt_more', 'ravel_excerpt_more');
 
+/* Page links. */
+add_filter( 'wp_link_pages_args', 'ravel_link_pages_args' );
+
 /* Custom search form. */
 add_filter( 'get_search_form', 'ravel_search_form' );
 
@@ -255,6 +258,22 @@ function ravel_attr_site_title( $attr ) {
 function ravel_excerpt_more($more) {
 	global $post;
 	return '<a class="moretag read-more-link" href="'. get_permalink($post->ID) . '">&#133;</a>';
+}
+
+/**
+ * Filters the page links args so that we can add wrapper for the "Pages:" text at the beginning.  This 
+ * also knocks out an extra text string for translators using this method.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array   $args
+ * @return array
+ */
+function ravel_link_pages_args( $args ) {
+
+	$args['before'] = preg_replace( "/(<p.*?>)(.+?)$/i", '$1<span class="page-links-text">$2</span>', $args['before'] );
+
+	return $args;
 }
 
 /**

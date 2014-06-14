@@ -30,7 +30,7 @@
 			<?php endif; // End check for image caption. ?>
 		
 			<?php the_content(); ?>
-			<?php wp_link_pages( array( 'before' => '<p class="page-links"><span class="page-links-text">' . __( 'Pages:', 'ravel' ) . '</span>', 'after' => '</p>' ) ); ?>
+			<?php the_content(); ?>
 			
 			<?php $gallery = gallery_shortcode( array( 'columns' => 4, 'numberposts' => 8, 'orderby' => 'rand', 'id' => get_queried_object()->post_parent, 'exclude' => get_the_ID() ) ); ?>
 

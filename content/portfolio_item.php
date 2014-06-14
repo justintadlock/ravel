@@ -26,7 +26,7 @@
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php the_content(); ?>
 			<?php echo wpautop( ravel_get_portfolio_item_link() ); ?>
-			<?php wp_link_pages( array( 'before' => '<p class="page-links"><span class="page-links-text">' . __( 'Pages:', 'ravel' ) . '</span>', 'after' => '</p>' ) ); ?>
+			<?php the_content(); ?>
 			<?php edit_post_link(); ?>
 		</div><!-- .entry-content -->
 

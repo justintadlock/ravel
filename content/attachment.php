@@ -18,7 +18,7 @@
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php hybrid_attachment(); // Function for handling non-image attachments. ?>
 			<?php the_content(); ?>
-			<?php wp_link_pages( array( 'before' => '<p class="page-links"><span class="page-links-text">' . __( 'Pages:', 'ravel' ) . '</span>', 'after' => '</p>' ) ); ?>
+			<?php the_content(); ?>
 		</div><!-- .entry-content -->
 
 	<?php else : // If not viewing a single attachment. ?>
