@@ -2019,16 +2019,18 @@ li.ping::after {
 		.featured-media .wp-video .mejs-video {
 			margin: 0;
 		}
-
-		.featured-media > a,
-		.featured-media img {
-			display: block;
-		}
 		
-		.featured-media img {
-			height: auto;
-			max-width: 100%;
-		}
+		.featured-media figure {display: inline-block;}
+
+			.featured-media > a,
+			.featured-media img {
+				display: block;
+			}
+			
+			.featured-media img {
+				height: auto;
+				max-width: 100%;
+			}
 	
 	/* === Entry Content === */
 		
@@ -3260,6 +3262,7 @@ li.ping::after {
 		width: 64.54%;
 	}
 		.singular-portfolio_item .featured-media figure {
+			display: block;
 			margin: 0 0 24px;
 			overflow: hidden;
 			position: relative;
