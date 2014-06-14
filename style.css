@@ -237,6 +237,7 @@ blockquote {
 		font-weight: 400;
 		text-shadow: 1px 1px 0 rgba(0,0,0,.25);
 	}
+		blockquote cite::before {content: '\2014';}
 
 	cite, i, em, var {font-style: italic;}
 
@@ -882,6 +883,8 @@ img.alignnone:only-child {
 
 .wp-caption {max-width: 100%;}
 
+	.wp-caption img {height: auto;}
+
 	.wp-caption-text,
 	.gallery-caption {
 		border: 0;
@@ -1135,7 +1138,7 @@ li.ping::after {
 				
 					/* micro layout grouping */
 					.entry-byline,
-					.singular-page .entry .entry-header,
+					.singular-page .entry-header,
 					#comments-header {
 						border-right: 3px double rgba(255,255,255,.1);
 						color: #8d9ca6;
@@ -1227,11 +1230,11 @@ li.ping::after {
 					/* sidebar toggle active icon */
 					.sidebar-toggle.active::before {
 						content: '\f053';
-						margin-left: 0;
+						margin-left: -3px;
 						}
 					
 					.sidebar-toggle.active:hover::before {
-						margin-left: -8px;
+						margin-left: -11px;
 					}
 					
 					/* sidebar icon background */
@@ -1382,10 +1385,6 @@ li.ping::after {
 						visibility: hidden;
 						z-index: 99;
 						}
-					.rtl nav.menu ul ul {
-						left: auto;
-						right: 0;
-						}
 						nav.menu li > ul::before {
 							border-bottom: 4px solid #101619;
 							border-left: 4px solid transparent;
@@ -1394,10 +1393,6 @@ li.ping::after {
 							left: 24px;
 							position: absolute;
 							top: -4px;
-							}
-						.rtl nav.menu li > ul::before {
-							left: auto;
-							right: 24px;
 							}
 					nav.menu li:hover > ul {
 						opacity: 1;
@@ -1410,11 +1405,6 @@ li.ping::after {
 							margin: 0 0 0 20px;
 							top: 0;
 							}
-						.rtl nav.menu ul ul ul {
-							left: auto;
-							margin: 0 20px 0 0;
-							right: 100%;
-							}
 							nav.menu li li > ul::before {
 								border-right: 4px solid #101619;
 								border-bottom: 4px solid transparent;
@@ -1423,17 +1413,8 @@ li.ping::after {
 								position: absolute;
 								top: 10px;
 								}
-							.rtl nav.menu li li > ul::before {
-								border-right: 0;
-								border-left: 4px solid #101619;
-								left: auto;
-								right: -4px;
-								}
 						nav.menu li li:hover > ul {
 							margin: 0 0 0 6px;
-							}
-						.rtl nav.menu li li:hover > ul {
-							margin: 0 6px 0 0;
 							}
 
 				/* === 1ST LEVEL CONTENT === */
@@ -1479,7 +1460,6 @@ li.ping::after {
 								text-shadow: 2px 2px 0 rgba(0,0,0,.2);
 								vertical-align: baseline;
 								}
-							.rtl nav.menu li > a::after {margin: 0 10px 0 0;}
 
 					/* === 2ND LEVEL CONTENT === */
 
@@ -1516,8 +1496,7 @@ li.ping::after {
 				/* === ALL LEVELS RESET === */
 
 							/* no drop-down indicator for single items */
-							nav.menu li a:only-child::after,
-							.rtl nav.menu li a:only-child::after {
+							nav.menu li a:only-child::after {
 								content: '';
 								margin: 0;
 								}
@@ -1549,8 +1528,6 @@ li.ping::after {
 								font-size: 16px;
 								margin: 0 0 0 8px;
 								}
-
-							.rtl nav.menu li a:only-child::after {margin: 0 8px 0 0;}
 
 							/* dribbble */
 							nav.menu li > a[href*="dribbble"]:only-child::after {
@@ -1685,9 +1662,6 @@ li.ping::after {
 				top: auto;
 				visibility: visible;
 			}
-			.rtl #menu-primary ul ul {
-				right: auto;
-			}
 				#menu-primary li > ul::before {display: none;}
 				
 				#menu-primary ul ul ul {
@@ -1695,14 +1669,9 @@ li.ping::after {
 					margin: 0;
 					top: auto;
 				}
-				.rtl #menu-primary ul ul ul {
-					margin: 0;
-					right: auto;
-				}
 					#menu-primary li li > ul::before {display: none;}
 
-				#menu-primary li li:hover > ul,
-				.rtl #menu-primary li li:hover > ul {
+				#menu-primary li li:hover > ul {
 					margin: 0;
 				}
 					
@@ -1724,8 +1693,7 @@ li.ping::after {
 					line-height: 24px;
 					text-transform: none;
 				}
-					nav.menu li > a::after,
-					.rtl nav.menu li > a::after {
+					nav.menu li > a::after {
 						content: '';
 						margin: 0;
 					}
@@ -1743,10 +1711,6 @@ li.ping::after {
 					#menu-primary li li a {
 						padding-left: 35px;
 					}
-					.rtl #menu-primary li li a {
-						padding-left: 18px;
-						padding-right: 35px;
-					}
 
 						nav.menu li li a::before {
 							color: rgba(255,255,255,.5);
@@ -1756,16 +1720,10 @@ li.ping::after {
 							margin-right: 15px;
 							vertical-align: top;
 							}
-						.rtl nav.menu li li a::before {
-							margin-left: 15px;
-							margin-right: 0;
-							}
 
 						#menu-primary li li li a {padding-left: 75px; }
-						.rtl #menu-primary li li li a {padding-left: 18px; padding-right: 75px;}
 
 							#menu-primary li li li li a {padding-left: 115px;}
-							.rtl #menu-primary li li li li a {padding-left: 18px;padding-right: 115px;}
 							
 				/* current links */
 				#menu-primary li.current-menu-item > a,
@@ -2094,11 +2052,6 @@ li.ping::after {
 				padding-right: 18px;
 				text-align: right;
 				width: 22%;
-			}
-			.rtl .chat-author {
-				padding-left: 18px;
-				padding-right: 0;
-				text-align: left;	
 			}
 			.chat-speaker-1 .chat-author {color: #8dc63f;}
 			.chat-speaker-2 .chat-author {color: #00aeef;}
@@ -2480,7 +2433,7 @@ li.ping::after {
 								.comment-reply-link::before,
 								.comment-reply-login::before {
 									content: '\f112';
-									font-size: 11px;
+									font-size: 12px;
 								}
 								
 	/**
@@ -3340,10 +3293,6 @@ li.ping::after {
 			padding-left: 40px;
 			position: relative;
 			}
-		.rtl .clean-my-archives li {
-			padding-left: 0;
-			padding-right: 40px;
-			}
 			
 			.clean-my-archives .day,
 			.clean-my-archives .comments-number {
@@ -3356,21 +3305,11 @@ li.ping::after {
 				left: 0;
 				position: absolute;
 				}
-			.rtl .clean-my-archives .day {
-				left: auto;
-				right: 0;
-				}
 
 			.clean-my-archives .day-duplicate .day {
 				border-left: 1px dotted rgba(255,255,255,.2);
 				margin-left:  12px;
 				text-indent: -9999em;
-				}
-			.rtl .clean-my-archives .day-duplicate .day {
-				border-left: 0;
-				border-right: 1px dotted rgba(255,255,255,.2);
-				margin-left: 0;
-				margin-right: 12px;
 				}
 
 /**
@@ -3483,7 +3422,7 @@ nav.menu ul ul,
 		
 					/* micro layout grouping */
 					.entry-byline,
-					.singular-page .entry .entry-header,
+					.singular-page .entry-header,
 					#comments-header {
 						border-right: 0;
 						padding: 0 0 12px;
