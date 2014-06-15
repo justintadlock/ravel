@@ -178,11 +178,54 @@ function ravel_mod_theme_layout( $layout ) {
 }
 
 /**
+ * Gets the media for portfolio items on single portfolio item pages.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return string
+ */
+function ravel_get_portfolio_item_media() {
+
+	$video = hybrid_media_grabber( array( 'type' => 'video', 'split_media' => true, 'before' => '<div class="featured-media">', 'after' => '</div>' ) );
+
+	if ( !empty( $video ) )
+		return $video;
+
+	$image = get_the_image(
+		array(
+			'size'          => 'ravel-large', 
+			'split_content' => true, 
+			'scan_raw'      => true, 
+			'scan'          => true, 
+			'order'         => array( 'scan_raw', 'scan', 'featured' ),
+			'link_to_post'  => false,
+			'caption'       => true,
+			'width'         => 728,
+			'echo'          => false,
+		)
+	);
+
+	if ( !empty( $image ) ) {
+
+		preg_match( '/<figure.*?>/i', $image, $matches );
+
+		if ( empty( $matches ) )
+			return '<div class="featured-media"><figure>' . $image . '</figure></div>';
+		else
+			return '<div class="featured-media">' . $image . '</div>';
+	}
+
+	return ravel_get_attached_images();
+}
+
+/**
  * Get attached images.
  *
  * @since  1.0.0
+ * @access public
+ * @return string
  */
-function ravel_attached_images() {
+function ravel_get_attached_images() {
 
 	/* Get image attachments. If none, return. */
 	$attachments = get_attached_media( 'image' );
