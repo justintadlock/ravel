@@ -1978,19 +1978,21 @@ li.ping::after {
 		margin-top: 18px;	
 	}
 		.featured-media > *,
+		.featured-media img[class*="align"],
 		.featured-media .wp-video .mejs-video {
 			margin: 0;
 		}
+		
+		.featured-media > a {
+			/* removed extra spacing added by links */
+			display: block;
+		}
 			
-			/* for all images in featured-media */
-			.featured-media img {
-				height: auto;
-				max-width: 100%;
-			}
-			/* for normal images in featured-media, exclude all special uses like ones on portfolio pages */
-			.entry .featured-media > img {
-				margin: 0 !important;
-			}
+		/* for all images in featured-media */
+		.featured-media img {
+			height: auto;
+			max-width: 100%;
+		}
 	
 	/* === Entry Content === */
 		
