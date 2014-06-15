@@ -13,16 +13,16 @@
 				<?php the_post(); // Loads the post data. ?>
 
 				<li>
-					<figure>
-						<?php get_the_image(
-							array(
-								'default' => hybrid_locate_theme_file( array( 'images/placeholder-540.png' ) ),
-								'size'    => 'ravel-medium',
-								'scan'    => true,
-								'order'   => array( 'scan', 'featured', 'attachment', 'default' )
-							)
-						); ?>
-					</figure>
+					<?php get_the_image(
+						array(
+							'default' => hybrid_locate_theme_file( array( 'images/placeholder-540.png' ) ),
+							'size'    => 'ravel-medium',
+							'scan'    => true,
+							'order'   => array( 'scan', 'featured', 'attachment', 'default' ),
+							'before'  => '<figure>',
+							'after'   => '</figure>'
+						)
+					); ?>
 					<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
 				</li>
 
