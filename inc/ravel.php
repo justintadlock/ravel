@@ -184,17 +184,8 @@ function ravel_mod_theme_layout( $layout ) {
  */
 function ravel_attached_images() {
 
-	$children = array(
-		'post_parent'    => get_the_ID(),
-		'post_status'    => 'inherit',
-		'post_type'      => 'attachment',
-		'post_mime_type' => 'image',
-		'order'          => 'ASC',
-		'orderby'        => 'menu_order ID'
-	);
-
 	/* Get image attachments. If none, return. */
-	$attachments = get_children( $children );
+	$attachments = get_attached_media( 'image' );
 
 	if ( empty( $attachments ) )
 		return '';
