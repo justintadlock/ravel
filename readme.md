@@ -52,3 +52,13 @@ A work in progress...
 Additional notes on tabs:  In general, we should keep the settings to a minimum.  If the theme is popular enough, users are going to want more options, more options, and more options (I've seen this with tab plugins before, which is why I built Whistles).  This is a bit of a slippery slope, so I want to just draw a line in the sand and say, "These are the options that are available, but if you want more control, check out this plugin over here."  But, it also allows us room to grow based on feedback if we want to add more stuff later.
 
 I'm going to play my developer card here and say that this is what I can do for v.1.0.
+
+### Credits:
+(to be added to documentations)
+Photos featured in Screenshot:
+http://www.gratisography.com/pictures/3H.jpg
+http://www.gratisography.com/pictures/49.jpg
+http://www.gratisography.com/pictures/28n.jpg
+
+All images are by RYAN MCGUIRE posted at http://www.gratisography.com/
+Licensed under CCO: https://creativecommons.org/publicdomain/zero/1.0/

@@ -13,7 +13,7 @@ get_header(); // Loads the header.php template. ?>
 
 			<?php the_post(); // Loads the post data. ?>
 
-			<?php get_the_image( array( 'size' => 'ravel-medium', 'image_class' => 'hero-image', 'before' => '<section id="hero-image-container" class="col"><p>', 'after' => '</p></section>' ) ); ?>
+			<?php get_the_image( array( 'size' => 'ravel-medium', 'link_to_post' => false, 'image_class' => 'hero-image', 'before' => '<section id="hero-image-container" class="col"><p>', 'after' => '</p></section>' ) ); ?>
 
 			<section id="intro-quote-thumbnails" class="col">
 				<?php the_content(); ?>
