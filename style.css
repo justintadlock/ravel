@@ -892,7 +892,7 @@ img.alignnone:only-child {
 		font-size: 13px;
 		line-height: 18px;
 		margin: 0;
-		padding: 0 12px;
+		padding: 6px 12px 0;
 		text-align: center;
 		}
 
@@ -999,6 +999,10 @@ img.alignnone:only-child {
 						max-width: 100%;
 						width: auto;
 						}
+						
+					.gallery-caption {
+						padding: 0 12px;
+					}
 
 			/* .gallery-caption {} goes here, view .wp-caption */
 
@@ -1832,17 +1836,20 @@ li.ping::after {
 	.widget img {max-width: 100%;}
 	
 	.entry-content img,
-	.entry .featured-media img,
-	.archive-portfolio_item .featured-media figure,
-	.singular-portfolio_item .featured-media figure,
+	.featured-media > img,
+	.featured-media > a > img,
+	.featured-media figure,
 	.chat-transcript,
-	.widget {
+	.widget,
+	.page-template-intro .content p img,
+	.archive-portfolio_item .content figure,
+	.taxonomy-portfolio .content figure {
 		background: #161d21;
 		border: 1px solid #333b41;
 		box-shadow: 12px 12px 0 rgba(0,0,0,.08);
 		padding: 11px;
 	}
-
+	
 	.entry-content img {box-shadow: none;}
 
 /**
@@ -1977,21 +1984,32 @@ li.ping::after {
 	.entry-title + .featured-media {
 		margin-top: 18px;	
 	}
+		/* reset child floats and margins */
 		.featured-media > *,
 		.featured-media img[class*="align"],
 		.featured-media .wp-video .mejs-video {
+			float: none;
 			margin: 0;
 		}
 		
-		.featured-media > a {
-			/* removed extra spacing added by links */
+		/* removed extra spacing */
+		.featured-media > a,
+		.featured-media > figure > a,
+		.featured-media > figure > img,
+		.featured-media > figure > a > img {
 			display: block;
 		}
 			
-		/* for all images in featured-media */
-		.featured-media img {
+		/* for targetted images in featured-media */
+		.featured-media > a > img,
+		.featured-media > figure > img,
+		.featured-media > figure > a > img {
 			height: auto;
 			max-width: 100%;
+		}
+		
+		.post .featured-media .wp-caption-text {
+			padding: 12px 12px 0;
 		}
 	
 	/* === Entry Content === */
@@ -3060,14 +3078,6 @@ li.ping::after {
 	text-align: center;
 	word-spacing: -4px;
 }
-	.page-template-intro .content p img,
-	.archive-portfolio_item .content figure,
-	.taxonomy-portfolio .content figure {
-		background: #161d21;
-		border: 1px solid #333b41;
-		box-shadow: 12px 12px 0 rgba(0,0,0,.08);
-		padding: 11px;
-	}
 
 	.page-template-intro .col,
 	.page-template-intro .col {
@@ -3247,19 +3257,18 @@ li.ping::after {
 		padding: 0;
 		width: 64.54%;
 	}
-		.singular-portfolio_item .featured-media figure {
-			margin: 0 0 24px;
-			overflow: hidden;
-			position: relative;
-		}
+		/* reset margin bottom for all first level childs */
 		.singular-portfolio_item .featured-media > *{
 			margin-bottom: 24px;
 		}
 		
-			.singular-portfolio_item .featured-media a,
-			.singular-portfolio_item .featured-media img {
-				display: block;
-			}
+		/* reset all `figure` tags */
+		.singular-portfolio_item .featured-media figure,
+		.singular-portfolio_item .featured-media figure[class*="align"]{
+			margin: 0 0 24px;
+			overflow: hidden;
+			position: relative;
+		}
 		
 			.singular-portfolio_item .featured-media figcaption {
 				background: rgba(0,0,0,0.5);
