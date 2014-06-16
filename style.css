@@ -3531,6 +3531,10 @@ nav.menu ul ul,
 						
 /* === Header === */
 
+#header {
+	padding: 36px 0 0;
+}
+
 	#branding {
 		margin: 32px 0 30px;
 		padding: 0 15%;
