@@ -22,6 +22,7 @@ The following resources are not included with the theme but are external resourc
 The following resources are included within the theme package.
 
 * [Font Awesome](http://fontawesome.io) by Dave Gandy - Licensed under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
+* The AlxTabs widget was used as inspiration for the Ravel Tabs widget.  However, the code was written from the ground up.  AlxTabs was created by [Alexander "Alx" Agnarson](http://alxmedia.se) and is licensed under the [GNU GPL](http://www.gnu.org/licenses/gpl-3.0.html), version 3.0.
 * Images used within the screenshot are licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/) (public domain) and are created by [Ryan McGuire](http://www.gratisography.com):
 	* http://www.gratisography.com/pictures/3H.jpg
 	* http://www.gratisography.com/pictures/49.jpg
