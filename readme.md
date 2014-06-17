@@ -1,64 +1,38 @@
 # Ravel WordPress Theme
 
-A work in progress...
+Ravel is a responsive blog, portfolio, and professional profile theme built with the latest standards in Web design. It makes use of <abbr title="Hypertext Markup Language">HTML5</abbr>, utilizes [Schema.org](http://schema.org) microdata, and has a beautiful responsive design that looks and performs well on any device. It also integrates with the [Custom Content Portfolio](http://wordpress.org/plugins/custom-content-portfolio) plugin to allow you to show off your design, photography, and other artwork.
 
-### Changes:
+## Important Notes
 
-* FontAwesome updated to v.4.1.0
-* Bunch of CSS changes
-* PHP/HTML in all `content/` files
-* CSS classes in wiget-ravel-tabs.php. Also, widget class changed to `widget_util_tabs`
-* Theme Layout `customize` and `post_meta` are set to false. This is because the theme is not designed for one column. It just look awkward.
-* The way Singular Portfolio Items grab attached images
-* `taxonomy-portfolio.php` now uses `archive-portfolio_item.php`
-* Added editor style CSS
-* Added `searchform.php`
-* Added `menu/portfolio.php`
-* `sidebar/primary.php now` checks for `if ( $layout !== 'layout-1c' )` instead of `get_theme_mod`
+### Portfolio menu
 
-### Notes:
-* <del>in `js/ravel.js`, `if ( jQuery( 'body' ).has( '.tabs-nav' ) ) {` seems to be irrelevant. If you change it to `.has( '.safdsafdsfas' )`, the code within the conditional still executes, but shouldn't.</del>
-	* <ins>The check isn't really needed.</ins>
+This menu will only work if you have the [Custom Content Portfolio](http://themehybrid.com/plugins/custom-content-portfolio) plugin installed.  Otherwise, it won't appear at all.  It is only shown on portfolio-related pages.
 
-## TODO's:
+### Social menu
 
-* <del>Logo customizer setting</del>
-* <del>Search widget not working. Seems to be a Hybrid Core problem. Ravel is using</del> 
-* <del>Filter `get_search_form()` output based on `searchform.php`</del>
-* <del>Finish up tabs widget</del>
-* Full RTL support? This is up to you. I'm a bit lazy to test for RTL. In `style.css`, there are some RTL CSS carried over from my previous themes.
-	* <ins>This can actually be quite involved and is best done from the ground up as the theme is being built. You'd do a better job with this since you wrote the CSS. For v.1.0, I say to wait on this.</ins>
-* Language .pot file.
-* Double check all files
-* <del>Run theme check plugin</del>
-	* <ins>Checks out fine, pending the screenshot.</ins>
-* Demo site (I'll take care of this if you give me access to it)
-* Theme screenshot -- this is based on the demo site so will add this after demo is set up.
+The Social menu uses icons rather than text to display links.  You simply need to type in the correct URL of a social networking profile of your choice for your menu items.  The theme will take care of the rest.
 
-### Tabs Widget:
+## Copyright and License
 
-* <del>This widget is used to display up to 4 groups of content: Recent Posts, Popular Posts, Comments, and Tags. You can also use it to display just `Recent Comments` or just `Popular Posts` -- I really like this part from the original widget.</del>
-	* <ins>I decided to allow the user to set the number of posts, comments, or tags to "0".  In that case, the tab doesn't show.  It's not as intuitive, but it does cut out 4 options.</ins>
-* <del>When more than one group of content are on display, the widget title is automatically hidden in favor of the tabs nav. Right now, the widget displays the title unless the title is empty.</del>
-	* <ins>This is standard behavior for widgets.  If the user inputs a title, a title is expected.  If left empty, the title should not show.  Doing otherwise also can also mess with plugins that filter some of the widget-related hooks.</ins>
-	* <ins>Decided on not setting a default title for the widget. This way, the user must enter a title if they want it to show.</ins>
-* <del>Can you bring back the category link for the Recent Posts and Popular Posts entries or replace it with a post format archive link?</del>
-	* <ins>Used the post format link. That's easier to control since users won't be putting 100 of those in and saves some dev work getting the first cat.</ins>
-* <del>For Recent Posts, Popular Posts, and Recent Comments, allow users to select number of entries to display.</del>
-	* <ins>Can set the number of tags now too for consistency.</ins>
-* Allow users to set the order of tabs.
-	* <ins>This is ripe with problems (within my current skillset).  The only good way to do this is to allow the user to move this around with jQuery.  I haven't learned how to do this yet.</ins>
+The following resources are not included with the theme but are external resources linked to within the theme.
 
-Additional notes on tabs:  In general, we should keep the settings to a minimum.  If the theme is popular enough, users are going to want more options, more options, and more options (I've seen this with tab plugins before, which is why I built Whistles).  This is a bit of a slippery slope, so I want to just draw a line in the sand and say, "These are the options that are available, but if you want more control, check out this plugin over here."  But, it also allows us room to grow based on feedback if we want to add more stuff later.
+* [Lora Font](http://www.google.com/fonts/specimen/Lora) by Cyreal - Licensed under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
+* [Roboto Font](http://www.google.com/fonts/specimen/Roboto) by Christian Robertson - Licensed under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
 
-I'm going to play my developer card here and say that this is what I can do for v.1.0.
+The following resources are included within the theme package.
 
-### Credits:
-(to be added to documentations)
-Photos featured in Screenshot:
-http://www.gratisography.com/pictures/3H.jpg
-http://www.gratisography.com/pictures/49.jpg
-http://www.gratisography.com/pictures/28n.jpg
+* [Font Awesome](http://fontawesome.io) by Dave Gandy - Licensed under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
+* Images used within the screenshot are licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/) (public domain) and are created by [Ryan McGuire](http://www.gratisography.com):
+	* http://www.gratisography.com/pictures/3H.jpg
+	* http://www.gratisography.com/pictures/49.jpg
+	* http://www.gratisography.com/pictures/28n.jpg
 
-All images are by RYAN MCGUIRE posted at http://www.gratisography.com/
-Licensed under CCO: https://creativecommons.org/publicdomain/zero/1.0/
+All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
+
+2014 &copy; [Tung Do](https://twitter.com/tungdo), [Justin Tadlock](http://justintadlock.com).
+
+## Changelog
+
+### Version 1.0.0
+
+* Everything's new!
