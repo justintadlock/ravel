@@ -12,9 +12,9 @@
  *
  * @package    Ravel
  * @subpackage Functions
- * @version    1.0.0
- * @author     Name <name@email.com>
- * @copyright  Copyright (c) 2014, Name
+ * @author     Tung Do, <ttsondo@gmail.com>
+ * @author     Justin Tadlock, <justin@justintadlock.com>
+ * @copyright  Copyright (c) 2014, Tung Do, Justin Tadlock
  * @link       http://themehybrid.com/themes/ravel
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */

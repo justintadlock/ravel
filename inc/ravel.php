@@ -4,6 +4,11 @@
  * and lots of other awesome stuff that WordPress themes do.
  *
  * @package    Ravel
+ * @author     Tung Do, <ttsondo@gmail.com>
+ * @author     Justin Tadlock, <justin@justintadlock.com>
+ * @copyright  Copyright (c) 2014, Tung Do, Justin Tadlock
+ * @link       http://themehybrid.com/themes/ravel
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
 /* Register custom image sizes. */

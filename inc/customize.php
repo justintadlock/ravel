@@ -3,6 +3,11 @@
  * Handles the theme's theme customizer functionality.
  *
  * @package    Ravel
+ * @author     Tung Do, <ttsondo@gmail.com>
+ * @author     Justin Tadlock, <justin@justintadlock.com>
+ * @copyright  Copyright (c) 2014, Tung Do, Justin Tadlock
+ * @link       http://themehybrid.com/themes/ravel
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
 /* Theme Customizer setup. */

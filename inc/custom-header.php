@@ -3,6 +3,11 @@
  * Handles the setup and usage of the WordPress custom headers feature.
  *
  * @package    Ravel
+ * @author     Tung Do, <ttsondo@gmail.com>
+ * @author     Justin Tadlock, <justin@justintadlock.com>
+ * @copyright  Copyright (c) 2014, Tung Do, Justin Tadlock
+ * @link       http://themehybrid.com/themes/ravel
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
 /* Call late so child themes can override. */
